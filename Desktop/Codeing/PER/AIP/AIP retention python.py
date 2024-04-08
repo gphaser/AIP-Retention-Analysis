@@ -127,7 +127,38 @@ def rows_20(n):
 #Full data set (df)CODE, the following are the year break points 765, 1529, 2296, 3060, 3820, 4583, 5346, 6107, 6866, 7619, 8370, 
 # 9123, 9875, 10627, 11378, 12138, 12899, 13667, 14430, 15185, 15931
 #so will read over each line find what group it belongs to asign it to the apropriate data set for analysis 
-# groups are 0-8 for the different regions
+# groups are 0-9 for the different regions
+
+# Year breakpoints
+year_breakpoints = [765, 1529, 2296, 3060, 3820, 4583, 5346, 6107, 6866, 7619, 8370, 
+                    9123, 9875, 10627, 11378, 12138, 12899, 13667, 14430, 15185, 15931]
+
+# Initialize a dictionary to hold datasets for each year
+datasets = {}
+
+# Iterate over each year
+for i in range(len(year_breakpoints)):
+    start_index = year_breakpoints[i-1] if i > 0 else 0
+    end_index = year_breakpoints[i]
+    
+    # Create a dataset for the current year
+    datasets[f"year_{i+1}"] = df.iloc[start_index:end_index]
+
+# Example usage: accessing dataset for year 1
+# year_1_dataset = datasets["year_1"]
+
+
+
+dfc0 = df
+dfc1 = df
+dfc2 = df
+dfc3 = df
+dfc4 = df
+dfc5 = df
+dfc6 = df
+dfc7 = df
+dfc8 = df
+dfc9 = df
 
 
 # Calls for the recursion 
@@ -137,7 +168,12 @@ def rows_20(n):
 # rows_10(0)
 # rows_20(0)
 
-# CURRENT ISSUE HISTOGRAMS NOT PRINTING OUT 
-# FIXED BY ADDING MATPLOT
 
-# FIX FOR MORNING, GET GITHUB WORKING
+# FIX FOR MORNING, Got GITHUB WORKING, Now Working on incrimenting over CARNAGE data 
+
+#Current Issue Histograms produced are not correct 
+#Sollution Use redo the basic matplot code 
+
+# OLD ISSUES
+    # HISTOGRAMS NOT PRINTING OUT 
+        # FIXED BY ADDING MATPLOT
