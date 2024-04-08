@@ -1,0 +1,7 @@
+{
+    "new-shiny-application" : {
+        "dir" : "~/Desktop/Data Science",
+        "name" : "Demo",
+        "type" : "type_single_file"
+    }
+}

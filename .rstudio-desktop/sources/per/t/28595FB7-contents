@@ -1,0 +1,23 @@
+# library to simplify machine learning
+library(tidymodels)
+
+#sample the data
+iris_split <- initial_split(iris, prop = 0.6)
+iris_train <- training(iris_split)
+iris_test <- testing(iris_split)
+
+#preprocess the data using recipies package
+iris_recipe <- iris_train %>%
+  recipe(Species ~ .) %>%
+  step_corr(all_predictors()) %>%
+  step_center(all_predictors(), -all_outcomes()) %>%
+  step_scale(all_predictors(), -all_outcomes()) %>%
+  prep()
+
+#use the recipie to test the set
+iris_testing <- iris_recipe %>%
+  bake(iris_test)
+
+#use the recipie to train the set
+iris_training <- juice(iris_recipe)
+

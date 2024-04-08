@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Uninstall The Lord of the Rings Online
+Exec=env WINEPREFIX="/Users/Chris/Library/Application Support/com.standingstonegames.lotro/common/wineprefix" wine C:\\\\windows\\\\command\\\\start.exe /Unix /Users/Chris/Library/Application\\ Support/com.standingstonegames.lotro/common/wineprefix/dosdevices/c:/ProgramData/Microsoft/Windows/Start\\ Menu/Programs/StandingStoneGames/The\\ Lord\\ of\\ the\\ Rings\\ Online/Uninstall\\ The\\ Lord\\ of\\ the\\ Rings\\ Online.lnk
+Type=Application
+StartupNotify=true
+Icon=B8F4_icon.0
+StartupWMClass=unins000.exe

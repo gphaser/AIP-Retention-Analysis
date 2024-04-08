@@ -1,0 +1,769 @@
+1610556229201:install.packages("tidyverse")
+1610556380950:install.packages("tidyverse")
+1610556418083:library(ggplot2)
+1610556436484:library(tidyverse)
+1610556676652:mpg
+1610556786102:View(temp)
+1610556794864:View(mpg)
+1610556836899:ggplot()
+1610556901828:ggplot(data = mpg)
+1610557097967:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy))
+1610557178124:# hello
+1610557348705:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, color = class))
+1610557586982:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy) color = "blue")
+1610557648402:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
+1610557749829:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy), color = class)
+1610557766204:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, size = class)
+1610557783137:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, size = class))
+1610557801822:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, size = class))
+1610557835292:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, alpha = class))
+1610557881319:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, shape = class))
+1610558073297:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy))+ facet_wrap(~class, nrow = 2)
+1610558107482:ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, color = class))+ facet_wrap(~class, nrow = 2)
+1610558272780:ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy, color = class))+ facet_wrap(~class, nrow = 2)
+1610558290440:ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy, color = class))
+1610558330509:ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy, linetype = ary))
+1610558336508:ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy, linetype = dry))
+1610558344673:ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))
+1610558369608:ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv, color = drv))
+1610558377918:ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv, color = class))
+1610558398154:ggplot(data = mpg) + geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv, color = drv))
+1610729059464:library(ggplot2)
+1610729119027:ggplot(datat = mtg)+
+1610729119028:geom_point(mapping= aes(x=displ, y= hwy))
+1610729126964:ggplot(data = mtg)+
+1610729126964:geom_point(mapping= aes(x=displ, y= hwy))
+1610729134898:ggplot(data = mpg)+
+1610729134899:geom_point(mapping= aes(x=displ, y= hwy))
+1610729151959:ggplot(data = mpg)+
+1610729151960:geom_point(mapping= aes(x=displ, y= hwy, color = class))
+1610729319429:ggplot(data = mpg)+
+1610729319429:geom_point(mapping= aes(x=displ, y= hwy, color = class))+
+1610729319431:facet_wrap(~class, nrow = 2)
+1610729356380:ggplot(data = mpg)+
+1610729356381:geom_point(mapping= aes(x=displ, y= hwy, color = class))+
+1610729356382:facet_grid(drv ~ cyl)
+1610729607109:ggplot(data = mpg)+
+1610729607110:geom_smooth(mapping= aes(x=displ, y= hwy, linetype = dvr))
+1610729615935:ggplot(data = mpg)+
+1610729615936:geom_smooth(mapping= aes(x=displ, y= hwy, linetype = drv))
+1610729640506:ggplot(data = mpg)+
+1610729640506:geom_smooth(mapping= aes(x=displ, y= hwy, linetype = drv, color = drv))
+1610729786589:ggplot(data = mpg)+
+1610729786590:geom_point(mapping= aes(x=displ, y= hwy, color = class))+
+1610729786591:geom_smooth(mapping= aes(x=displ, y= hwy, linetype = drv, color = drv))
+1610729810675:ggplot(data = mpg)+
+1610729810675:geom_point(mapping= aes(x=displ, y= hwy, color = class))+
+1610729810676:geom_smooth(mapping= aes(x=displ, y= hwy))
+1610729916597:ggplot(data = mpg, mapping= aes(x=displ, y= hwy)+
+1610729916597:geom_point()+
+1610729916598:geom_smooth()
+1610729945063:ggplot(data = mpg, mapping= aes(x=displ, y= hwy)+
+1610729945064:geom_point(color = class)+
+1610729945065:geom_smooth()
+1610729967864:geom_point(mapping= aes(color = class))+
+1610730181804:ggplot(data = diamonds)+
+1610730181805:geom_bar(mapping= aes(x=cut, color = class))
+1610730197257:ggplot(data = diamonds) +
+1610730197259:geom_bar(mapping= aes(x=cut, color = class))
+1610730214391:ggplot(data = diamonds) +
+1610730214392:geom_bar(mapping= aes(x=cuts))
+1610730219901:ggplot(data = diamonds) +
+1610730219901:geom_bar(mapping= aes(x=cut))
+1610730276275:ggplot(data = diamonds) +
+1610730276276:geom_bar(mapping= aes(x=cut, color = cut)
+1610730283737:ggplot(data = diamonds) +
+1610730283738:geom_bar(mapping= aes(x=cut, color = cut))
+1610730298675:ggplot(data = diamonds) +
+1610730298675:geom_bar(mapping= aes(x=cut, fill = cut))
+1610730397894:source('~/Desktop/Data Science/GGPlots.R')
+1610730408935:source('~/Desktop/Data Science/GGPlots.R')
+1610730477176:ggplot(data = diamonds) +
+1610730477177:geom_bar(mapping= aes(x=cut, fill = cut))+
+1610730477178:coord_flip()
+1610730724446:ggplot(data = diamonds) +
+1610730724447:geom_bar(mapping= aes(x=cut, fill = cut))+
+1610730724447:ylab("g of diamonds")+
+1610730724448:xlab( "")+
+1610730724448:ggtitle("My Awsome Plot")
+1610730747563:ggplot(data = diamonds) +
+1610730747563:geom_bar(mapping= aes(x=cut, fill = cut))+
+1610730747564:ylab("g of diamonds")+
+1610730747564:xlab( "")+
+1610730747565:ggtitle("My Awsome Plot")+
+1610730747565:theme_gray()
+1610730751556:ggplot(data = diamonds) +
+1610730751557:geom_bar(mapping= aes(x=cut, fill = cut))+
+1610730751558:ylab("g of diamonds")+
+1610730751558:xlab( "")+
+1610730751558:ggtitle("My Awsome Plot")+
+1610730751558:theme_gray()
+1610730759267:ggplot(data = diamonds) +
+1610730759268:geom_bar(mapping= aes(x=cut, fill = cut))+
+1610730759272:ylab("g of diamonds")+
+1610730759272:xlab( "")+
+1610730759275:ggtitle("My Awsome Plot")+
+1610730759276:theme_dark()
+1610730772261:ggplot(data = diamonds) +
+1610730772264:geom_bar(mapping= aes(x=cut, fill = cut))+
+1610730772264:ylab("g of diamonds")+
+1610730772265:xlab( "")+
+1610730772265:ggtitle("My Awsome Plot")+
+1610730772265:theme_minimal()
+1610730911025:install.packages("ggthemes")
+1610730935598:library(ggthemes)
+1610730958520:ggplot(data = diamonds) +
+1610730958522:geom_bar(mapping= aes(x=cut, fill = cut))+
+1610730958523:ylab("g of diamonds")+
+1610730958523:xlab( "")+
+1610730958523:ggtitle("My Awsome Plot")+
+1610730958524:theme_gdocs()
+1610730995862:# need to library(ggplot) and library(ggthemes)
+1610730995863:ggplot(data = mpg)+
+1610730995864:geom_point(mapping= aes(x=displ, y= hwy, color = class))+
+1610730995865:facet_grid(drv ~ cyl)
+1610731003412:ggplot(data = diamonds) +
+1610731003413:geom_bar(mapping= aes(x=cut, fill = cut))+
+1610731003414:ylab("g of diamonds")+
+1610731003414:xlab( "")+
+1610731003415:ggtitle("My Awsome Plot")+
+1610731003415:theme_gdocs()
+1611160716945:library(ggplot2)
+1611160725982:library(ggthemes)
+1611160871209:ggplot(data = diamonds)+
+1611160871210:geom_bar(mapping = aes(x=cut,fill=cut))+
+1611160871211:ylab("# of diamonds")+
+1611160871211:xlab("")+
+1611160871213:ggtitle("My Awesome Plot")+
+1611160871214:theme_wsj()
+1611161464401:library(tidyverse)
+1611161822971:setwd("~/Desktop")
+1611161862926:library(readr)
+1611161862927:ramen_ratings <- read_csv("ramen-ratings.csv")
+1611161863025:View(ramen_ratings)
+1611162260720:ggplot(data = ramen_ratings)+
+1611162260723:geom_point(mapping = aes(x=style, y=stars, color = country))
+1611162267947:ggplot(data = ramen_ratings)+
+1611162267947:geom_point(mapping = aes(x=Style, y=stars, color = country))
+1611162275497:ggplot(data = ramen_ratings)+
+1611162275498:geom_point(mapping = aes(x=Style, y=stars, color = Country))
+1611162291348:ggplot(data = ramen_ratings)+
+1611162291349:geom_point(mapping = aes(x=Style, y=Stars, color = Country))
+1611162318148:ggplot(data = ramen_ratings)+
+1611162318148:geom_point(mapping = aes(x=Style, y=Stars))
+1611162333350:ggplot(data = ramen_ratings)+
+1611162333351:geom_point(mapping = aes(y=Style, x=Stars))
+1611162366576:ggplot(data = ramen_ratings)+
+1611162366577:geom_point(mapping = aes(y=Style, x=Country))
+1611162387880:ggplot(data = ramen_ratings)+
+1611162387881:geom_bar(mapping = aes(y=Style, x=Country))
+1611162400663:ggplot(data = ramen_ratings)+
+1611162400664:geom_bar(mapping = aes(y=Style, color = Country))
+1611333383243:library(LaTeX)
+1611333403522:library('LaTeX')
+1611333422067:library('latex')
+1611333429434:library('tinytex')
+1611333439117:tinytex::install_tinytex()
+1611335219684:library(tidyverse)
+1611592794569:library(tidyverse)
+1611592872449:install.packages("rticales")
+1611592924027:install.packages("rticles")
+1611766203455:library(tidyverse)
+1611766888038:ds <- read_csv("~/Desktop/Data Science/ramen-ratings.csv")
+1611766888158:# build the traing/testing sets
+1611766888159:indexies <- sample(1:nrow(ds), as.int(0.7*nrow(ds)))
+1611766888165:trainData <-ds[indexies,]
+1611766888215:testData <-ds[~indexies,]
+1611766891502:# build the traing/testing sets
+1611766891504:indexies <- sample(1:nrow(ds), as.int(0.7*nrow(ds)))
+1611766902205:# build the traing/testing sets
+1611766902206:indexies <- sample(1:nrow(ds), as.integer(0.7*nrow(ds)))
+1611766946635:testData <- ds[~indexies,]
+1611767125995:testData <- ds[-indexies,]
+1611767154925:trainData <- ds[indexies,]
+1611767714959:library(rpart)
+1611767714998:library(rattle)
+1611767753829:install.packages("rpart")
+1611767758865:install.packages("rpart")
+1611767772705:install.packages("rattle")
+1611767792171:# Demo Decision trees
+1611767792172:library(tidyverse)
+1611767792173:library(rpart) # for building decision trees
+1611767792173:library(rattle) # for graficly displaying decision trees
+1611767792266:# read in the data set
+1611767792266:ds <- read_csv("~/Desktop/Data Science/ramen-ratings.csv")
+1611767792318:# build the traing/testing sets
+1611767792319:indexies <- sample(1:nrow(ds), as.integer(0.7*nrow(ds)))
+1611767792322:trainData <- ds[indexies,]
+1611767792323:testData <- ds[-indexies,]
+1611767792325:# build decision tree
+1611768038761:rpart(formula = tasty_ramen - country+stars , data = trainData, method = "class")
+1611768070009:rpart(formula = `tasty ramen` - country+stars , data = trainData, method = "class")
+1611768091273:rpart(formula = `Tasty ramen` ~ country+stars , data = trainData, method = "class")
+1611768098234:rpart(formula = `Tasty Ramen` ~ country+stars , data = trainData, method = "class")
+1611768181460:rpart(formula = `Rating` ~ country + stars , data = trainData, method = "class")
+1611768208567:rpart(formula = `Top 10` ~ country + stars , data = trainData, method = "class")
+1611768237814:rpart(formula = `Top 10` ~ stars , data = trainData, method = "class")
+1611768252843:rpart(formula = `Top Ten` ~ stars , data = trainData, method = "class")
+1611768267724:rpart(formula = `Top Ten` ~ countries+stars , data = trainData, method = "class")
+1611768294798:rpart(formula = `Top Ten` ~ Country+Stars , data = trainData, method = "class")
+1612544330278:library(naivebayes)
+1612544339154:load(naivebayes)
+1612544384650:install.packages(naivebayes)
+1612544412149:install.packages("naivebayes")
+1612544449743:library(naivebayes)
+1612544483467:model <- naive_bayes(drv ~ fl+class, data ~ trainData)
+1612544488898:# Naive Bayes DEMO
+1612544488899:library(tidyverse)
+1612544496187:library(naivebayes)
+1612544496190:# read in the dataset
+1612544496190:# ds <- read_csv('~)
+1612544496192:ds <- mpg
+1612544496198:# build the training/testing sets
+1612544496198:indexies <- sample(1:nrow(ds), as.integer(0.76*nrow(ds)))
+1612544496201:trainData <- ds[indexies,]
+1612544496209:testData <- ds[indexies,]
+1612544496210:model <- naive_bayes(drv ~ fl+class, data ~ trainData)
+1612544557719:# Naive Bayes DEMO
+1612544557719:library(tidyverse)
+1612544557720:library(naivebayes)
+1612544557721:# read in the dataset
+1612544557722:# ds <- read_csv('~)
+1612544557723:ds <- mpg
+1612544557723:# build the training/testing sets
+1612544557724:indexies <- sample(1:nrow(ds), as.integer(0.75 * nrow(ds)))
+1612544557725:trainData <- ds[indexies,]
+1612544557725:testData <- ds[~indexies,]
+1612544557764:model <- naive_bayes(drv ~ fl+class, data ~ trainData)
+1612544598328:model <- naive_bayes(drv ~ fl + class, data = trainData, laplace = 1)
+1612544692458:# Naive Bayes DEMO
+1612544692459:library(tidyverse)
+1612544692460:library(naivebayes)
+1612544692460:# read in the dataset
+1612544692461:# ds <- read_csv('~)
+1612544692462:ds <- mpg
+1612544692463:# build the training/testing sets
+1612544692463:indexies <- sample(1:nrow(ds), as.integer(0.75 * nrow(ds)))
+1612544692463:trainData <- ds[indexies,]
+1612544692464:testData <- ds[~indexies,]
+1612544692507:#build the naive bayes model
+1612544692507:model <- naive_bayes(drv ~ fl + class, data = trainData, laplace = 1)
+1612544692510:predict(model, testData[1,])
+1612544902465:# Naive Bayes DEMO
+1612544902465:library(tidyverse)
+1612544902466:library(naivebayes)
+1612544902467:# read in the dataset
+1612544902468:# ds <- read_csv('~)
+1612544902468:ds <- mpg
+1612544902469:# build the training/testing sets
+1612544902469:indexies <- sample(1:nrow(ds), as.integer(0.75 * nrow(ds)))
+1612544902469:trainData <- ds[indexies,]
+1612544902470:testData <- ds[~indexies,]
+1612544902495:#build the naive bayes model
+1612544902495:model <- naive_bayes(drv ~ fl + class, data = trainData, laplace = 1)
+1612544902497:predict(model, testData[1,], type = 'prob')
+1612544934349:# Naive Bayes DEMO
+1612544934350:library(tidyverse)
+1612544934351:library(naivebayes)
+1612544934351:# read in the dataset
+1612544934352:# ds <- read_csv('~)
+1612544934353:ds <- mpg
+1612544934355:# build the training/testing sets
+1612544934355:indexies <- sample(1:nrow(ds), as.integer(0.75 * nrow(ds)))
+1612544934356:trainData <- ds[indexies,]
+1612544934357:testData <- ds[~indexies,]
+1612544934378:#build the naive bayes model
+1612544934379:model <- naive_bayes(drv ~ fl + class, data = trainData, laplace = 1)
+1612544934381:predict(model, testData[1,], type = "prob")
+1612803127970:# Demo Decision trees
+1612803127971:library(tidyverse)
+1612803129956:library(rpart) # for building decision trees
+1612803129985:library(rattle) # for graficly displaying decision trees
+1612803130075:# read in the data set
+1612803130076:ds <- read_csv("~/Desktop/Data Science/ramen-ratings.csv")
+1612803130247:# build the traing/testing sets
+1612803130248:indexies <- sample(1:nrow(ds), as.integer(0.7*nrow(ds)))
+1612803130249:trainData <- ds[indexies,]
+1612803130253:testData <- ds[-indexies,]
+1612803130254:# build decision tree
+1612803130255:rpart(formula = `Top Ten` ~ Country+Stars , data = trainData, method = "class")
+1612803198010:# Naive Bayes DEMO
+1612803198013:library(tidyverse)
+1612803198014:library(naivebayes)
+1612803198033:# read in the dataset
+1612803198034:# ds <- read_csv('~)
+1612803198035:ds <- mpg
+1612803198038:# build the training/testing sets
+1612803198038:indexies <- sample(1:nrow(ds), as.integer(0.75 * nrow(ds)))
+1612803198042:trainData <- ds[indexies,]
+1612803198043:testData <- ds[~indexies,]
+1612803198105:#build the naive bayes model
+1612803198106:model <- naive_bayes(drv ~ fl + class, data = trainData, laplace = 1)
+1612803198126:predict(model, testData[1,], type = "prob")
+1612803224139:iris''
+1612803226947:iris
+1612803437612:install.packages("factoextra")
+1612803489567:library(factoextra) # for visualzing
+1612803518588:iris
+1612803650482:#kMEANS EXAMPLE (Clustering)
+1612803650483:#import needed libraries
+1612803650484:library(factoextra) # for visualzing
+1612803650484:#Using iris dataset, centers = k = number of clusters to create (you may not know this)
+1612803650485:kmeans(iris[,1:4], centers = 3, )
+1612803662533:#kMEANS EXAMPLE (Clustering)
+1612803662534:#import needed libraries
+1612803662535:library(factoextra) # for visualzing
+1612803662536:#Using iris dataset, centers = k = number of clusters to create (you may not know this)
+1612803662536:kmeans(iris[,1:4], centers = 3)
+1612803965047:#kMEANS EXAMPLE (Clustering)
+1612803965047:#import needed libraries
+1612803965048:library(factoextra) # for visualzing
+1612803965049:#Using iris dataset, centers = k = number of clusters to create (you may not know this) minimum = 2
+1612803965049:km <- kmeans(iris[,1:4], centers = 3)
+1612803965051:# this is the only line needed to do this unsupervized learning.
+1612803965051:cbind(iris, km$cluster)
+1612804195045:#kMEANS EXAMPLE (Clustering)
+1612804195046:#import needed libraries
+1612804195047:library(factoextra) # for visualzing
+1612804195047:#Using iris dataset, centers = k = number of clusters to create (you may not know this) minimum = 2
+1612804195048:# Run Kmeans and make predictions
+1612804195049:km <- kmeans(iris[,1:4], centers = 3)
+1612804195050:# this is the only line needed to do this unsupervized learning.
+1612804195051:cbind(iris, km$cluster) # adds the cluster to the dataset.
+1612804195075:fviz_cluster(km, iris[,1:4])
+1612804233096:#kMEANS EXAMPLE (Clustering)
+1612804233097:#import needed libraries
+1612804233098:library(factoextra) # for visualzing
+1612804233098:#Using iris dataset, centers = k = number of clusters to create (you may not know this) minimum = 2
+1612804233098:# Run Kmeans and make predictions
+1612804233100:km <- kmeans(iris[,1:2], centers = 3)
+1612804233101:# this is the only line needed to do this unsupervized learning.
+1612804233101:cbind(iris, km$cluster) # adds the cluster to the dataset.
+1612804233120:fviz_cluster(km, iris[,1:2])
+1612804280280:#kMEANS EXAMPLE (Clustering)
+1612804280280:#import needed libraries
+1612804280281:library(factoextra) # for visualzing
+1612804280282:#Using iris dataset, centers = k = number of clusters to create (you may not know this) minimum = 2
+1612804280282:# Run Kmeans and make predictions
+1612804280283:km <- kmeans(iris[,1:4], centers = 3)
+1612804280285:# this is the only line needed to do this unsupervized learning.
+1612804280285:cbind(iris, km$cluster) # adds the cluster to the dataset.
+1612804280301:fviz_cluster(km, iris[,1:4])
+1612975711041:install.packages("nycflights13")
+1612975903141:#DPLYR EXAMPLES
+1612975903142:library(nycflights13)
+1612975903549:library(tidyverse)
+1612975905555:filter()
+1612976106811:ds <- filter(flights, month == 1 | month == 3)
+1612977141943:filter(flights, dest == "IAH" | dest == "HOU" )
+1613147891067:View(ds)
+1613148216176:#DPLYR EXAMPLES
+1613148216177:#included library
+1613148216177:library(nycflights13)
+1613148216492:library(tidyverse)
+1613148218002:ds <- filter(flights, month == 1 | month == 3)
+1613148218753:# find flights that arive with a delay of 2 or more hours
+1613148218753:filter(flights, arr_delay >= 2)
+1613148218855:# find all flights to huston (IAH or HOU)
+1613148218856:filter(flights, dest == "IAH" | dest == "HOU" )
+1613148218937:# find all flights opperated by United American or Delta
+1613148218938:filter(flights, carrier == "UA" | carrier == "DL")
+1613148219022:# find all flights that departed in Jully August or September
+1613148219022:filter(flights, dest == "IAH" | dest == "HOU" )
+1613148219091:# find flights that arived more than 2 hours late
+1613148219092:filter(flights, arr_delat >120)
+1613148219155:# find flights that departed between midnight and 6am (inclusive)
+1613148219155:filter(flights, dep_time <= 600 || dep_time == 2400 )
+1613148219367:select(flights, month, year, everything())
+1613148294660:select(flights, year:day)
+1613148651556:ds2 <- mutate(flights, air_time_hours = air_time / 60)
+1613148785583:mutate(flights, gain - arr_delay, speed-distance / air_time*60)
+1613148791071:mutate(flights, goin - arr_delay, speed-distance / air_time*60)
+1613148835830:mutate(flights, gain = arr_delay-dep_delay, speed = distance / air_time*60)
+1613149392012:transmute(flights, dep_time_mins  = dep_time %/% 100 * 60 + dep_time %% 100)
+1613149515717:summarise(flights, delay = mean(dep_delay, na.rm = TRUE))
+1613408433209:read.csv("~/Desktop/Data Science/R files/country_vaccinations.csv")
+1613408449625:# Read in csv and store it
+1613408449630:ds <- read.csv("~/Desktop/Data Science/R files/country_vaccinations.csv")
+1613408455551:View(ds)
+1613408909283:View(ds)
+1613753550133:ds <- kaggle competitions download -c titanic
+1613753676225:ds <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613753865190:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613753865198:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613753869225:View(ds_train)
+1613754443948:# import library
+1613754443948:library(tidyverse)
+1613754446031:library(ggplot2)
+1613754446032:# import data for training and test
+1613754446032:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754446044:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754446052:# build the decision tree
+1613754446053:model <- rpart(formula = drv ~ Fex + Fare, data = ds_train, method = "class")
+1613754446104:#display the decision tree
+1613754446104:rpart.plot(model)
+1613754473978:# import library
+1613754473978:library(tidyverse)
+1613754473980:library(ggplot2)
+1613754473980:# import data for training and test
+1613754473981:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754473993:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754473997:# build the decision tree
+1613754473998:model <- rpart(formula = Survived ~ Sex + Fare, data = ds_train, method = "class")
+1613754474001:#display the decision tree
+1613754474001:rpart.plot(model)
+1613754498867:# import library
+1613754498868:library(tidyverse)
+1613754498871:library(ggplot2)
+1613754498872:library(rpart)
+1613754498911:library(rpart.plot)
+1613754498941:# import data for training and test
+1613754498941:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754498950:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754498957:# build the decision tree
+1613754498957:model <- rpart(formula = Survived ~ Sex + Fare, data = ds_train, method = "class")
+1613754498982:#display the decision tree
+1613754498983:rpart.plot(model)
+1613754525337:# import library
+1613754525338:library(tidyverse)
+1613754525339:library(ggplot2)
+1613754525339:library(rpart)
+1613754525340:library(rpart.plot)
+1613754525340:# import data for training and test
+1613754525341:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754525352:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754525358:# build the decision tree
+1613754525359:model <- rpart(formula = Survived ~ Sex + Fare, data = ds_train,
+1613754525360:method = "class", control = list(cp = -1))
+1613754525375:#display the decision tree
+1613754525375:rpart.plot(model)
+1613754560160:#display the decision tree
+1613754560160:rpart.plot(model)
+1613754577919:# import library
+1613754577919:library(tidyverse)
+1613754579943:library(ggplot2)
+1613754579943:library(rpart)
+1613754579982:library(rpart.plot)
+1613754580012:# import data for training and test
+1613754580013:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754580024:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754580034:# build the decision tree
+1613754580034:model <- rpart(formula = Survived ~ Sex + Fare, data = ds_train,
+1613754580036:method = "class", control = list(cp = -1))
+1613754580065:#display the decision tree
+1613754580065:rpart.plot(model)
+1613754627193:# import library
+1613754627193:library(tidyverse)
+1613754629601:library(ggplot2)
+1613754629603:library(rpart)
+1613754629650:library(rpart.plot)
+1613754629685:# import data for training and test
+1613754629685:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754629696:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754631334:View(ds_train)
+1613754647538:# import library
+1613754647538:library(tidyverse)
+1613754647539:library(ggplot2)
+1613754647540:library(rpart)
+1613754647540:library(rpart.plot)
+1613754647540:# import data for training and test
+1613754647541:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754647549:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754647561:# build the decision tree
+1613754647561:model <- rpart(formula = Survived ~ Sex + PClass, data = ds_train,
+1613754647562:method = "class", control = list(cp = -1))
+1613754647624:#display the decision tree
+1613754647624:rpart.plot(model)
+1613754657961:# import library
+1613754657962:library(tidyverse)
+1613754657962:library(ggplot2)
+1613754657963:library(rpart)
+1613754657964:library(rpart.plot)
+1613754657965:# import data for training and test
+1613754657966:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754657975:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754657981:# build the decision tree
+1613754657981:model <- rpart(formula = Survived ~ Sex + Pclass, data = ds_train,
+1613754657982:method = "class", control = list(cp = -1))
+1613754657999:#display the decision tree
+1613754658000:rpart.plot(model)
+1613754703049:predictions <- predict(model, test, type = "class")
+1613754711004:predictions <- predict(model, ds_test, type = "class")
+1613754742785:# import library
+1613754742786:library(tidyverse)
+1613754742787:library(ggplot2)
+1613754742787:library(rpart)
+1613754742788:library(rpart.plot)
+1613754742789:# import data for training and test
+1613754742790:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754742801:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754742808:# build the decision tree
+1613754742809:model <- rpart(formula = Survived ~ Sex + Pclass, data = ds_train,
+1613754742810:method = "class", control = list(cp = -1))
+1613754742819:#display the decision tree
+1613754742819:rpart.plot(model)
+1613754743113:# make preditcions using the test set
+1613754743114:predictions <- predict(model, ds_test, type = "class")
+1613754753189:model <- rpart(formula = Survived ~ Sex + Fare, data = ds_train,
+1613754755979:# import library
+1613754755980:library(tidyverse)
+1613754755981:library(ggplot2)
+1613754755982:library(rpart)
+1613754755982:library(rpart.plot)
+1613754755983:# import data for training and test
+1613754755984:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754755991:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754756000:# build the decision tree
+1613754756001:model <- rpart(formula = Survived ~ Sex + Fare, data = ds_train,
+1613754756002:method = "class", control = list(cp = -1))
+1613754756019:#display the decision tree
+1613754756019:rpart.plot(model)
+1613754787057:# make preditcions using the test set
+1613754787058:predictions <- predict(model, ds_test, type = "class")
+1613754787061:# import library
+1613754787062:library(tidyverse)
+1613754787063:library(ggplot2)
+1613754787063:library(rpart)
+1613754787065:library(rpart.plot)
+1613754787066:# import data for training and test
+1613754787066:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754787081:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754787088:# build the decision tree
+1613754787089:model <- rpart(formula = Survived ~ Sex + Fare, data = ds_train,
+1613754787090:method = "class", control = list(cp = -1))
+1613754787120:#display the decision tree
+1613754787120:rpart.plot(model)
+1613754823825:# import library
+1613754823828:library(tidyverse)
+1613754826104:library(ggplot2)
+1613754826105:library(rpart)
+1613754826149:library(rpart.plot)
+1613754826176:# import data for training and test
+1613754826176:ds_train <- read.csv("~/Desktop/Data Science/R files/titanic/train.csv")
+1613754826186:ds_test <- read.csv("~/Desktop/Data Science/R files/titanic/test.csv")
+1613754826190:# build the decision tree
+1613754826191:model <- rpart(formula = Survived ~ Sex + Pclass, data = ds_train,
+1613754826192:method = "class", control = list(cp = -1))
+1613754826223:#display the decision tree
+1613754826223:rpart.plot(model)
+1613754826305:# make preditcions using the test set
+1613754826305:predictions <- predict(model, ds_test, type = "class")
+1614011935044:install.packages("shiny")
+1614012237536:shiny::runApp('Desktop/Data Science/Demo')
+1614012410570:runApp('Desktop/Data Science/Demo')
+1614012466029:runApp('Desktop/Data Science/Demo')
+1614012496343:runApp('Desktop/Data Science/Demo')
+1614012701995:runApp('Desktop/Data Science/Demo')
+1614012717192:runApp('Desktop/Data Science/Demo')
+1614012768087:runApp('Desktop/Data Science/Demo')
+1614012839263:runApp('Desktop/Data Science/Demo')
+1614012870932:runApp('Desktop/Data Science/Demo')
+1614012934739:runApp('Desktop/Data Science/Demo')
+1614013197248:runApp('Desktop/Data Science/Demo')
+1614013393454:runApp('Desktop/Data Science/Demo')
+1614013453921:runApp('Desktop/Data Science/Demo')
+1614013701582:runApp('Desktop/Data Science/Demo')
+1614013774264:runApp('Desktop/Data Science/Demo')
+1614014011085:runApp('Desktop/Data Science/Demo')
+1614014375847:runApp('Desktop/Data Science/Demo')
+1614357378409:shiny::runApp('Desktop/Data Science/Demo')
+1614357598427:runApp('Desktop/Data Science/R CODE/Shiny app 2.R')
+1614357614251:runApp('Desktop/Data Science/R CODE/Shiny app 2.R')
+1614357633497:runApp('Desktop/Data Science/R CODE/Shiny app 2.R')
+1614357939999:runApp('Desktop/Data Science/R CODE/Shiny app 2.R')
+1614357992444:runApp('Desktop/Data Science/R CODE/Shiny app 2.R')
+1614358072445:library(shiny); runApp('Desktop/Data Science/R CODE/Shiny app 2.R')
+1614358152938:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358160824:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358236121:library(shiny); runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358298310:library(shiny); runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358315902:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358378310:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358380352:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358388953:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358412920:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358424838:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358537144:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358557501:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358579629:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358599542:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358625833:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358650287:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358669281:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358708596:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358717998:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358729654:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358740748:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358909143:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614358917913:runApp('Desktop/Data Science/Demo/Shiny app 2.R')
+1614359283351:runApp('Desktop/Data Science/Demo/Shiny app 3.R')
+1614359479693:runApp('Desktop/Data Science/Demo/Shiny app 3.R')
+1614359538187:runApp('Desktop/Data Science/Demo/Shiny app 3.R')
+1614359582208:runApp('Desktop/Data Science/Demo/Shiny app 3.R')
+1614359622178:runApp('Desktop/Data Science/Demo/Shiny app 3.R')
+1614962447588:install.packages("leaflet")
+1614962553485:library(leaflet)
+1614962553618:map <- (leaflet)
+1614962553619:map
+1614962568951:map <- leaflet()
+1614962573035:library(leaflet)
+1614962573036:map <- leaflet()
+1614962573042:map
+1614962600358:library(leaflet)
+1614962600359:map <- leaflet()
+1614962600360:map <- addTiles(map)
+1614962609363:library(leaflet)
+1614962609364:map <- leaflet()
+1614962609366:map <- addTiles(map)
+1614962609366:map
+1614962766929:library(leaflet)
+1614962766930:map <- leaflet()
+1614962766931:map <- addTiles(map)
+1614962766933:map <- addMarkers(map, lng = 174.768, lat = 36.85, popup = "a place")
+1614962766941:map
+1614962789589:library(leaflet)
+1614962789590:map <- leaflet()
+1614962789591:map <- addTiles(map)
+1614962789592:map <- addMarkers(map, lng = 194.768, lat = 36.85, popup = "a place")
+1614962789597:map
+1614962808897:library(leaflet)
+1614962808898:map <- leaflet()
+1614962808899:map <- addTiles(map)
+1614962808901:map <- addMarkers(map, lng = 344.768, lat = 36.85, popup = "a place")
+1614962808902:map
+1614962814512:map <- addMarkers(map, lng = 344.768, lat = -36.85, popup = "a place")
+1614962816950:library(leaflet)
+1614962816954:map <- leaflet()
+1614962816958:map <- addTiles(map)
+1614962816959:map <- addMarkers(map, lng = 344.768, lat = -36.85, popup = "a place")
+1614962816962:map
+1614962829615:library(leaflet)
+1614962829620:map <- leaflet()
+1614962829620:map <- addTiles(map)
+1614962829621:map <- addMarkers(map, lng = 174.768, lat = -36.85, popup = "a place")
+1614962829622:map
+1614962864366:library(leaflet)
+1614962864367:map <- leaflet()
+1614962864370:map <- addTiles(map)
+1614962864372:map <- addMarkers(map, lng = 174.768, lat = -36.85, popup = "a place in new zeland")
+1614962864374:map
+1615567074339:install.packages("magick")
+1615567110741:library(magick)
+1615567999339:#write an image
+1615567999340:image_write(tiger, path = "tiger.png", format = png)
+1615568002214:# load a svg image
+1615568002215:tiger <- image_read_svg("http://http://jeroen.github.io/images/tiger.svg", width = 350)
+1615568002305:tiger
+1615568002305:#write an image
+1615568002306:image_write(tiger, path = "tiger.png", format = png)
+1615568008817:tiger
+1615568020218:# load a svg image
+1615568020219:tiger <- image_read_svg("https://http://jeroen.github.io/images/tiger.svg", width = 350)
+1615568029975:# load a svg image
+1615568029975:tiger <- image_read_svg("https://jeroen.github.io/images/tiger.svg", width = 350)
+1615568030127:tiger
+1615568030128:#write an image
+1615568030129:image_write(tiger, path = "tiger.png", format = png)
+1615568048429:tiger
+1615568051746:tiger <- image_read_svg("https://jeroen.github.io/images/tiger.svg", width = 350)
+1615568067411:library(magick)
+1615568071130:tiger <- image_read_svg("https://jeroen.github.io/images/tiger.svg", width = 350)
+1615568122467:frink <- image_read("https://jeroen.github.io/images/frink.png", width = 350)
+1615568130623:frink <- image_read("https://jeroen.github.io/images/frink.png")
+1615568156233:frink <- image_read("https://jeroen.github.io/images/frink.png")
+1615568156268:image_border(frink, "hotpink")
+1615568176982:# load a svg image
+1615568176983:tiger <- image_read_svg("http://jeroen.github.io/images/tiger.svg", width = 350)
+1615568180247:tiger <- image_read_svg("http://jeroen.github.io/images/tiger.svg", width = 350)
+1615568180270:tiger
+1615568222281:frink <- image_read("https://jeroen.github.io/images/frink.png")
+1615568222318:image_background(image_border(frink, "hotpink"),"blue")
+1615568245227:image_border(image_background(frink, "hotpink"),"blue")
+1615568259866:image_border(image_background(frink, "pink"),"blue")
+1616429737860:numbers <- runif(1000)
+1616429737861:hist(numbers)
+1616429741461:# this is a demo to learn git and git hub
+1616429741462:x <- c(1,3,4)
+1616429741462:y <- c(2,1,3)
+1616429741463:x+y
+1616430031764:echo "# Data_Science_2021" >> README.md
+1616430031765:git init
+1616430031839:git add README.md
+1616430031839:git commit -m "first commit"
+1616430031840:git branch -M main
+1616430031840:git remote add origin https://github.com/Zigboy/Data_Science_2021.git
+1616430031841:git push -u origin main
+1616430046357:git init
+1616430046358:git add README.md
+1616430046358:git commit -m "first commit"
+1616430046359:git branch -M main
+1616430046359:git remote add origin https://github.com/Zigboy/Data_Science_2021.git
+1616430046359:git push -u origin main
+1616430271686:# this is a demo to learn git and git hub
+1616430271687:x <- c(1,3,4)
+1616430271689:y <- c(2,1,3)
+1616430271689:x+y
+1616430274511:numbers <- runif(1000)
+1616430274511:hist(numbers)
+1616775356800:install.packages(esquisse)
+1616775365176:install.packages("esquisse")
+1616775496649:library(esquisse)
+1616775496667:esquisse()
+1616775507549:library(esquisse)
+1616775507550:esquisser()
+1617032732358:install.packages("tidymodels")
+1617032789244:library(tidymodels)
+1617033074027:library(tidymodels)
+1617033074028:iris_split <- initial_split(iris, prop = .6)
+1617033082167:iris_split <- initial_split(iris, prop = .6)
+1617033088979:iris_split <- initial_split(iris, prop = 0.6)
+1617033169316:training(iris_split)
+1617033169330:testing(iris_split)
+1617033183352:iris_split
+1617033871730:iris_recipi <- iris_train %>%
+1617033871730:recipe(Species ~ .) %>%
+1617033871731:step_corr(all_predictors()) %>%
+1617033871732:step_center(all_predictors(), -all_outcomes()) %>%
+1617033871732:step_scale(all_predictors(), -all_outcomes()) %>%
+1617033871733:prep()
+1617033906664:iris_split <- initial_split(iris, prop = 0.6)
+1617033906681:iris_train <- training(iris_split)
+1617033906684:iris_test <- testing(iris_split)
+1617033909430:iris_recipi <- iris_train %>%
+1617033909431:recipe(Species ~ .) %>%
+1617033909432:step_corr(all_predictors()) %>%
+1617033909433:step_center(all_predictors(), -all_outcomes()) %>%
+1617033909433:step_scale(all_predictors(), -all_outcomes()) %>%
+1617033909434:prep()
+1617033973819:iris_testing <- iris_recipe %>%
+1617033973819:bake(iris_test)
+1617033973896:iris_training <- iris_recipe %>%
+1617033973896:juice(iris_train)
+1617033980883:iris_recipe <- iris_train %>%
+1617033980884:recipe(Species ~ .) %>%
+1617033980885:step_corr(all_predictors()) %>%
+1617033980885:step_center(all_predictors(), -all_outcomes()) %>%
+1617033980885:step_scale(all_predictors(), -all_outcomes()) %>%
+1617033980886:prep()
+1617033981047:iris_testing <- iris_recipe %>%
+1617033981048:bake(iris_test)
+1617033981071:iris_training <- iris_recipe %>%
+1617033981072:juice(iris_train)
+1617033996845:library(tidymodels)
+1617033996847:#sample the data
+1617033996847:iris_split <- initial_split(iris, prop = 0.6)
+1617033996864:iris_train <- training(iris_split)
+1617033996865:iris_test <- testing(iris_split)
+1617033996869:#preprocess the data
+1617033996869:iris_recipe <- iris_train %>%
+1617033996872:recipe(Species ~ .) %>%
+1617033996873:step_corr(all_predictors()) %>%
+1617033996874:step_center(all_predictors(), -all_outcomes()) %>%
+1617033996875:step_scale(all_predictors(), -all_outcomes()) %>%
+1617033996876:prep()
+1617033997038:iris_testing <- iris_recipe %>%
+1617033997038:bake(iris_test)
+1617033997066:iris_training <- juice(iris_train)
+1617034033128:iris_training <- juice(iris_train)
+1617034156954:iris_training <- juice(iris_recipe)
+1617034159710:View(iris_recipi)

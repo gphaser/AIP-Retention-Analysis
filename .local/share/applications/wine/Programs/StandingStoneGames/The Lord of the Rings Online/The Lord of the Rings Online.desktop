@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=The Lord of the Rings Online
+Exec=env WINEPREFIX="/Users/Chris/Library/Application Support/com.standingstonegames.lotro/common/wineprefix" wine C:\\\\windows\\\\command\\\\start.exe /Unix /Users/Chris/Library/Application\\ Support/com.standingstonegames.lotro/common/wineprefix/dosdevices/c:/ProgramData/Microsoft/Windows/Start\\ Menu/Programs/StandingStoneGames/The\\ Lord\\ of\\ the\\ Rings\\ Online/The\\ Lord\\ of\\ the\\ Rings\\ Online.lnk
+Type=Application
+StartupNotify=true
+Path=/Users/Chris/Library/Application Support/com.standingstonegames.lotro/common/wineprefix/dosdevices/c:/Program Files (x86)/StandingStoneGames/The Lord of the Rings Online
+Icon=B8F4_icon.0
+StartupWMClass=lotrolauncher.exe
