@@ -7,6 +7,7 @@
 import pandas as pd
 # imported matplot for data.
 import matplotlib.pyplot as plt
+import numpy as np 
 
 
 # Read the Excel file into a pandas DataFrame
@@ -33,7 +34,7 @@ dfm = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/AIP Retention.xlsx", s
 
 num_rows = len(dfm)
 print("Number of rows:", num_rows)
-print("rember to uncoment recursion and comment this line")
+print("rember to uncoment recursion, and carnagee orginization and comment this line")
 
 # generic histograms
 # CURRENTLY PRODUCES HISTOGRAMS BUT NOT OF PROPER TYPE TO BE FIXED ASAP 4-5-24
@@ -46,12 +47,15 @@ def row_1(n):
         categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
         print(selected_row)
         # Plotting a histogram of the selected row
-        selected_row.plot.hist()
-        # Annotate each bar with its respective count
-        plt.title("Data for " + str(2002+n))
+        # selected_row.plot.hist()
+        plt.bar(categories, selected_row)
+        # Add data labels above each bar
+        for i, value in enumerate(selected_row):
+            plt.text(i, value + 1, str(value), ha='center', va='bottom')
+        plt.title("Data for" + str(2002+n))
         plt.ylabel("Values")
-        plt.xlabel(categories)
-        plt.show()
+        plt.xlabel('Groups')
+        plt.show() 
         print('end')
     else:
         print(n)
@@ -60,11 +64,14 @@ def row_1(n):
         print(selected_row)
         # Plotting a histogram of the selected row
         categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
-        selected_row.plot.hist()
-        plt.title("Data for " + str(2002+n))
+        plt.bar(categories, selected_row)
+        # Add data labels above each bar
+        for i, value in enumerate(selected_row):
+            plt.text(i, value + 1, str(value), ha='center', va='bottom')
+        plt.title("Data for" + str(2002+n))
         plt.ylabel("Values")
-        plt.xlabel(categories)
-        plt.show()
+        plt.xlabel('Groups')
+        plt.show()  
         n = n + 1
         row_1(n)
 
@@ -75,15 +82,31 @@ def rows_2(n):
         print('end')
     else: 
         print(n)
-        dfm.iloc[n:n+1,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
+        selected_row1 = dfm.iloc[n,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
+        selected_row2 = dfm.iloc[n+1,[1, 2, 3, 4, 5]]
+        categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
+        # set bar lenght
+        x = np.arange(len(categories))
+        # Set the width of the bars
+        bar_width = 0.35
+        plt.bar(x-bar_width/2, selected_row1, width=bar_width, label="Data for" + str(2002+n))
+        plt.bar(x+bar_width/2, selected_row2, width=bar_width, label="Data for" + str(2002+n+1))
+        # Add data labels above each bar
+        for i, value in enumerate(selected_row1):
+            plt.text(i - bar_width/2, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row2):
+            plt.text(i + bar_width/2, value + 1, str(value), ha='center', va='bottom')
+        plt.title("Data for " + str(2002+n)+'-'+str(2002+n+1))
+        plt.ylabel("Values")
+        plt.xlabel('Groups')
+        plt.xticks(x, categories)
+        plt.show()  
         n=n+1
         print(n)
         rows_2(n)
-        # dfm.plot.hist()
-        # print(dfm.plot.hist())
 
 def rows_5(n): 
-    if n >= 15:
+    if n > 15:
         print(n, "final n")
         dfm.iloc[n:n+5,[1, 2, 3, 4, 5]] 
         print('end')
@@ -91,15 +114,43 @@ def rows_5(n):
         # print(dfm.plot.hist())
     else: 
         print(n)
-        dfm.iloc[n:n+5,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
+        selected_row1 = dfm.iloc[n,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
+        selected_row2 = dfm.iloc[n+1,[1, 2, 3, 4, 5]]
+        selected_row3 = dfm.iloc[n+2,[1, 2, 3, 4, 5]]
+        selected_row4 = dfm.iloc[n+3,[1, 2, 3, 4, 5]]
+        selected_row5 = dfm.iloc[n+4,[1, 2, 3, 4, 5]]
+        categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
+        # set bar lenght
+        x = np.arange(len(categories))
+        # Set the width of the bars
+        bar_width = 0.1
+        plt.bar(x-bar_width*4, selected_row1, width=bar_width, label="Data for" + str(2002+n))
+        plt.bar(x-bar_width*3, selected_row2, width=bar_width, label="Data for" + str(2002+n+1))
+        plt.bar(x-bar_width*2, selected_row3, width=bar_width, label="Data for" + str(2002+n+2))
+        plt.bar(x-bar_width, selected_row4, width=bar_width, label="Data for" + str(2002+n+3))
+        plt.bar(x, selected_row5, width=bar_width, label="Data for" + str(2002+n+4))
+        # Add data labels above each bar
+        for i, value in enumerate(selected_row1):
+            plt.text(i - bar_width*4, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row2):
+            plt.text(i - bar_width*3, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row3):
+            plt.text(i - bar_width*2, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row4):
+            plt.text(i - bar_width, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row5):
+            plt.text(i, value + 1, str(value), ha='center', va='bottom')
+        plt.title("Data for " + str(2002+n)+'-'+str(2002+n+5))
+        plt.ylabel("Values")
+        plt.xlabel('Groups')
+        plt.xticks(x, categories)
+        plt.show()  
         n=n+5
         print(n)
         rows_5(n)
-        # dfm.plot.hist()
-        # print(dfm.plot.hist())
 
 def rows_10(n): 
-    if n >= 10:
+    if n >= 11:
         print(n, "final n")
         dfm.iloc[n:n+10,[1, 2, 3, 4, 5]] 
         print('end')
@@ -107,8 +158,63 @@ def rows_10(n):
         # print(dfm.plot.hist())
     else: 
         print(n)
-        dfm.iloc[n:n+10,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
-        n=n+5
+        selected_row1 = dfm.iloc[n,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
+        selected_row2 = dfm.iloc[n+1,[1, 2, 3, 4, 5]]
+        selected_row3 = dfm.iloc[n+2,[1, 2, 3, 4, 5]]
+        selected_row4 = dfm.iloc[n+3,[1, 2, 3, 4, 5]]
+        selected_row5 = dfm.iloc[n+4,[1, 2, 3, 4, 5]]
+        selected_row6 = dfm.iloc[n+5,[1, 2, 3, 4, 5]]
+        selected_row7 = dfm.iloc[n+6,[1, 2, 3, 4, 5]]
+        selected_row8 = dfm.iloc[n+7,[1, 2, 3, 4, 5]]
+        selected_row9 = dfm.iloc[n+8,[1, 2, 3, 4, 5]]
+        selected_row10 = dfm.iloc[n+9,[1, 2, 3, 4, 5]]
+        selected_row11 = dfm.iloc[n+10,[1, 2, 3, 4, 5]]
+        categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
+        # set bar lenght
+        x = np.arange(len(categories))
+        # Set the width of the bars
+        bar_width = 0.1
+        plt.bar(x-bar_width*10, selected_row1, width=bar_width, label="Data for" + str(2002+n))
+        plt.bar(x-bar_width*9, selected_row2, width=bar_width, label="Data for" + str(2002+n+1))
+        plt.bar(x-bar_width*8, selected_row3, width=bar_width, label="Data for" + str(2002+n+2))
+        plt.bar(x-bar_width*7, selected_row4, width=bar_width, label="Data for" + str(2002+n+3))
+        plt.bar(x-bar_width*6, selected_row5, width=bar_width, label="Data for" + str(2002+n+4))
+        plt.bar(x-bar_width*5, selected_row6, width=bar_width, label="Data for" + str(2002+n+5))
+        plt.bar(x-bar_width*4, selected_row7, width=bar_width, label="Data for" + str(2002+n+6))
+        plt.bar(x-bar_width*3, selected_row8, width=bar_width, label="Data for" + str(2002+n+7))
+        plt.bar(x-bar_width*2, selected_row9, width=bar_width, label="Data for" + str(2002+n+8), color='green')
+        plt.bar(x-bar_width, selected_row10, width=bar_width, label="Data for" + str(2002+n+9),color='red' )
+        plt.bar(x, selected_row11, width=bar_width, label="Data for" + str(2002+n+10),color= 'brown')
+
+        # Add data labels above each bar
+        for i, value in enumerate(selected_row1):
+            plt.text(i - bar_width*10, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row2):
+            plt.text(i - bar_width*9, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row3):
+            plt.text(i - bar_width*8, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row4):
+            plt.text(i - bar_width*7, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row5):
+            plt.text(i - bar_width*6, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row6):
+            plt.text(i - bar_width*5, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row7):
+            plt.text(i - bar_width*4, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row8):
+            plt.text(i - bar_width*3, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row9):
+            plt.text(i - bar_width*2, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row10):
+            plt.text(i - bar_width, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row11):
+            plt.text(i, value + 1, str(value), ha='center', va='bottom')
+        plt.title("Data for " + str(2002+n)+'-'+str(2002+n+10))
+        plt.ylabel("Values")
+        plt.xlabel('Groups')
+        plt.xticks(x, categories)
+        plt.show()  
+        n=n+10
         print(n)
         rows_10(n)
         # dfm.plot.hist()
@@ -117,14 +223,114 @@ def rows_10(n):
 def rows_20(n): 
     if n >= 0:
         print(n, "final n")
-        dfm.iloc[n:n+20,[1, 2, 3, 4, 5]]
+        selected_row1 = dfm.iloc[n,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
+        selected_row2 = dfm.iloc[n+1,[1, 2, 3, 4, 5]]
+        selected_row3 = dfm.iloc[n+2,[1, 2, 3, 4, 5]]
+        selected_row4 = dfm.iloc[n+3,[1, 2, 3, 4, 5]]
+        selected_row5 = dfm.iloc[n+4,[1, 2, 3, 4, 5]]
+        selected_row6 = dfm.iloc[n+5,[1, 2, 3, 4, 5]]
+        selected_row7 = dfm.iloc[n+6,[1, 2, 3, 4, 5]]
+        selected_row8 = dfm.iloc[n+7,[1, 2, 3, 4, 5]]
+        selected_row9 = dfm.iloc[n+8,[1, 2, 3, 4, 5]]
+        selected_row10 = dfm.iloc[n+9,[1, 2, 3, 4, 5]]
+        selected_row11 = dfm.iloc[n+10,[1, 2, 3, 4, 5]]
+        selected_row12 = dfm.iloc[n+11,[1, 2, 3, 4, 5]]
+        selected_row13 = dfm.iloc[n+12,[1, 2, 3, 4, 5]]
+        selected_row14 = dfm.iloc[n+13,[1, 2, 3, 4, 5]]
+        selected_row15 = dfm.iloc[n+14,[1, 2, 3, 4, 5]]
+        selected_row16 = dfm.iloc[n+15,[1, 2, 3, 4, 5]]
+        selected_row17 = dfm.iloc[n+16,[1, 2, 3, 4, 5]]
+        selected_row18 = dfm.iloc[n+17,[1, 2, 3, 4, 5]]
+        selected_row19 = dfm.iloc[n+18,[1, 2, 3, 4, 5]]
+        selected_row20 = dfm.iloc[n+19,[1, 2, 3, 4, 5]]
+        selected_row21 = dfm.iloc[n+20,[1, 2, 3, 4, 5]]
         categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
-        # selected_rows.plot.hist()
-        print('end')
-        # dfm.plot.hist()
-        # print(dfm.plot.hist())
+        # set bar lenght
+        x = np.arange(len(categories))
+        # Set the width of the bars
+        bar_width = 0.05
+        plt.bar(x-bar_width*20, selected_row1, width=bar_width, label="Data for" + str(2002+n))
+        plt.bar(x-bar_width*19, selected_row2, width=bar_width, label="Data for" + str(2002+n+1))
+        plt.bar(x-bar_width*18, selected_row3, width=bar_width, label="Data for" + str(2002+n+2))
+        plt.bar(x-bar_width*17, selected_row4, width=bar_width, label="Data for" + str(2002+n+3))
+        plt.bar(x-bar_width*16, selected_row5, width=bar_width, label="Data for" + str(2002+n+4))
+        plt.bar(x-bar_width*15, selected_row6, width=bar_width, label="Data for" + str(2002+n+5))
+        plt.bar(x-bar_width*14, selected_row7, width=bar_width, label="Data for" + str(2002+n+6))
+        plt.bar(x-bar_width*13, selected_row8, width=bar_width, label="Data for" + str(2002+n+7))
+        plt.bar(x-bar_width*12, selected_row9, width=bar_width, label="Data for" + str(2002+n+8), color='green')
+        plt.bar(x-bar_width*11, selected_row10, width=bar_width, label="Data for" + str(2002+n+9),color='red' )
+        plt.bar(x-bar_width*10, selected_row11, width=bar_width, label="Data for" + str(2002+n+10),color= 'brown')
+        plt.bar(x-bar_width*9, selected_row12, width=bar_width, label="Data for" + str(2002+n+11))
+        plt.bar(x-bar_width*8, selected_row13, width=bar_width, label="Data for" + str(2002+n+12))
+        plt.bar(x-bar_width*7, selected_row14, width=bar_width, label="Data for" + str(2002+n+13))
+        plt.bar(x-bar_width*6, selected_row15, width=bar_width, label="Data for" + str(2002+n+14))
+        plt.bar(x-bar_width*5, selected_row16, width=bar_width, label="Data for" + str(2002+n+15))
+        plt.bar(x-bar_width*4, selected_row17, width=bar_width, label="Data for" + str(2002+n+16))
+        plt.bar(x-bar_width*3, selected_row18, width=bar_width, label="Data for" + str(2002+n+17))
+        plt.bar(x-bar_width*2, selected_row19, width=bar_width, label="Data for" + str(2002+n+18), color='green')
+        plt.bar(x-bar_width, selected_row20, width=bar_width, label="Data for" + str(2002+n+19),color='red' )
+        plt.bar(x, selected_row21, width=bar_width, label="Data for" + str(2002+n+20),color= 'brown')
+
+        # Add data labels above each bar
+        for i, value in enumerate(selected_row1):
+            plt.text(i - bar_width*20, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row2):
+            plt.text(i - bar_width*19, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row3):
+            plt.text(i - bar_width*18, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row4):
+            plt.text(i - bar_width*17, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row5):
+            plt.text(i - bar_width*16, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row6):
+            plt.text(i - bar_width*15, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row7):
+            plt.text(i - bar_width*14, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row8):
+            plt.text(i - bar_width*13, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row9):
+            plt.text(i - bar_width*12, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row10):
+            plt.text(i - bar_width*11, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row11):
+            plt.text(i - bar_width*10, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row12):
+            plt.text(i - bar_width*9, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row13):
+            plt.text(i - bar_width*8, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row14):
+            plt.text(i - bar_width*7, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row15):
+            plt.text(i - bar_width*6, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row16):
+            plt.text(i - bar_width*5, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row17):
+            plt.text(i - bar_width*4, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row18):
+            plt.text(i - bar_width*3, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row19):
+            plt.text(i - bar_width*2, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row20):
+            plt.text(i - bar_width, value + 1, str(value), ha='center', va='bottom')
+        for i, value in enumerate(selected_row21):
+            plt.text(i, value + 1, str(value), ha='center', va='bottom')
+        plt.title("Data for " + str(2002+n)+'-'+str(2002+n+20))
+        plt.ylabel("Values")
+        plt.xlabel('Groups')
+        plt.xticks(x, categories)
+        plt.show()  
+        n=n+10
+        print(n)
     else: 
         print("error")
+
+
+# Calls for the recursion 
+# row_1(0)
+# rows_2(0)
+# rows_5(0)
+# rows_10(0)
+rows_20(0)
 
 # create data sets for the CARNAGE data classifies the US into 9 regions (in obreg collum):
 # issue will have to use og data set, good news already have the stuff that i need to do it
@@ -142,6 +348,8 @@ year_breakpoints = [765, 1529, 2296, 3060, 3820, 4583, 5346, 6107, 6866, 7619, 8
 datasets = {}
 
 # Iterate over each year
+'''
+
 for i in range(len(year_breakpoints)):
     start_index = year_breakpoints[i-1] if i > 0 else 0
     end_index = year_breakpoints[i]
@@ -172,7 +380,7 @@ for i in range(len(year_breakpoints)):
     dfc9 = dfy[dfy['obereg'] == 9].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc9)
 
-
+'''
 
 
 
@@ -184,13 +392,19 @@ for i in range(len(year_breakpoints)):
 # rows_20(0)
 
 
-# Now Working on incrimenting over CARNAGE data 
+# CURRENT WORK GRAPHS
 
 #Current Issue Histograms produced are not correct 
 #Sollution: redo the basic matplot code 
 
 #CURRENT ISSUE 
 
+
 # OLD ISSUES
     # HISTOGRAMS NOT PRINTING OUT 
         # FIXED BY ADDING MATPLOT
+    # Git HUB not working 
+        # FIX USE THE FOLLOWING TO PUSH
+            # git add /Users/Chris/Desktop/Codeing/PER/AIP
+            # git commit -m "stuff"
+            # git push origin main
