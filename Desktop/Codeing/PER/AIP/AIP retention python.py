@@ -52,7 +52,7 @@ def row_1(n):
         # Add data labels above each bar
         for i, value in enumerate(selected_row):
             plt.text(i, value + 1, str(value), ha='center', va='bottom')
-        plt.title("Data for" + str(2002+n))
+        plt.title("Data for " + str(2002+n))
         plt.ylabel("Values")
         plt.xlabel('Groups')
         plt.show() 
@@ -68,7 +68,7 @@ def row_1(n):
         # Add data labels above each bar
         for i, value in enumerate(selected_row):
             plt.text(i, value + 1, str(value), ha='center', va='bottom')
-        plt.title("Data for" + str(2002+n))
+        plt.title("Data for " + str(2002+n))
         plt.ylabel("Values")
         plt.xlabel('Groups')
         plt.show()  
@@ -248,7 +248,7 @@ def rows_20(n):
         # set bar lenght
         x = np.arange(len(categories))
         # Set the width of the bars
-        bar_width = 0.05
+        bar_width = 0.045
         plt.bar(x-bar_width*20, selected_row1, width=bar_width, label="Data for" + str(2002+n))
         plt.bar(x-bar_width*19, selected_row2, width=bar_width, label="Data for" + str(2002+n+1))
         plt.bar(x-bar_width*18, selected_row3, width=bar_width, label="Data for" + str(2002+n+2))
@@ -274,6 +274,7 @@ def rows_20(n):
         # Add data labels above each bar
         for i, value in enumerate(selected_row1):
             plt.text(i - bar_width*20, value + 1, str(value), ha='center', va='bottom')
+        '''
         for i, value in enumerate(selected_row2):
             plt.text(i - bar_width*19, value + 1, str(value), ha='center', va='bottom')
         for i, value in enumerate(selected_row3):
@@ -312,6 +313,7 @@ def rows_20(n):
             plt.text(i - bar_width*2, value + 1, str(value), ha='center', va='bottom')
         for i, value in enumerate(selected_row20):
             plt.text(i - bar_width, value + 1, str(value), ha='center', va='bottom')
+        '''    
         for i, value in enumerate(selected_row21):
             plt.text(i, value + 1, str(value), ha='center', va='bottom')
         plt.title("Data for " + str(2002+n)+'-'+str(2002+n+20))
@@ -326,11 +328,11 @@ def rows_20(n):
 
 
 # Calls for the recursion 
-# row_1(0)
+row_1(0)
 # rows_2(0)
 # rows_5(0)
 # rows_10(0)
-rows_20(0)
+# rows_20(0)
 
 # create data sets for the CARNAGE data classifies the US into 9 regions (in obreg collum):
 # issue will have to use og data set, good news already have the stuff that i need to do it
@@ -357,31 +359,102 @@ for i in range(len(year_breakpoints)):
     # Create a dataset for the current year
     dfy = datasets[f"year_{i+1}"] = df.iloc[start_index:end_index]
     # grouping by the 'Carnege' column
-    dfc = dfy.sort_values('obereg') # sorts dataset by obreg value
+    dfo = dfy.sort_values('obereg') # sorts dataset by obreg value
     # print(dfc)
-    dfc0 = dfy[dfy['obereg'] == 0].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo0 = dfy[dfy['obereg'] == 0].sort_values('obereg') # Creates a data frame for each year for the classifications
     print(dfc0)
-    dfc1 = dfy[dfy['obereg'] == 1].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo1 = dfy[dfy['obereg'] == 1].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc1)
-    dfc2 = dfy[dfy['obereg'] == 2].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo2 = dfy[dfy['obereg'] == 2].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc2)
-    dfc3 = dfy[dfy['obereg'] == 3].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo3 = dfy[dfy['obereg'] == 3].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc3)
-    dfc4 = dfy[dfy['obereg'] == 4].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo4 = dfy[dfy['obereg'] == 4].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc4)
-    dfc5 = dfy[dfy['obereg'] == 5].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo5 = dfy[dfy['obereg'] == 5].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc5)
-    dfc6 = dfy[dfy['obereg'] == 6].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo6 = dfy[dfy['obereg'] == 6].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc6)
-    dfc7 = dfy[dfy['obereg'] == 7].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo7 = dfy[dfy['obereg'] == 7].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc7)
-    dfc8 = dfy[dfy['obereg'] == 8].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo8 = dfy[dfy['obereg'] == 8].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc8)
-    dfc9 = dfy[dfy['obereg'] == 9].sort_values('obereg') # Creates a data frame for each year for the classifications
+    dfo9 = dfy[dfy['obereg'] == 9].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfc9)
 
 '''
+#iterate over Canrage Clasification
+'''
 
+for i in range(len(year_breakpoints)):
+    start_index = year_breakpoints[i-1] if i > 0 else 0
+    end_index = year_breakpoints[i]
+    
+    # Create a dataset for the current year
+    dfy = datasets[f"year_{i+1}"] = df.iloc[start_index:end_index]
+    # grouping by the 'basic2021' column for Carnagee clasification 
+    dfc = dfy.sort_values('basic2021') # sorts dataset by basic2021 value 0-23, 27, 28, 32, 34, 35
+    # print(dfc)
+    dfc0 = dfy[dfy['basic2021'] == 0].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    print(dfc0)
+    dfc1 = dfy[dfy['basic2021'] == 1].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc1)
+    dfc2 = dfy[dfy['basic2021'] == 2].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc2)
+    dfc3 = dfy[dfy['basic2021'] == 3].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc3)
+    dfc4 = dfy[dfy['basic2021'] == 4].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc4)
+    dfc5 = dfy[dfy['basic2021'] == 5].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc5)
+    dfc6 = dfy[dfy['basic2021'] == 6].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc6)
+    dfc7 = dfy[dfy['basic2021'] == 7].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc7)
+    dfc8 = dfy[dfy['basic2021'] == 8].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc8)
+    dfc9 = dfy[dfy['basic2021'] == 9].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc9)
+    dfc10 = dfy[dfy['basic2021'] == 10].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    print(dfc0)
+    dfc11 = dfy[dfy['basic2021'] == 11].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc1)
+    dfc12 = dfy[dfy['basic2021'] == 12].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc2)
+    dfc13 = dfy[dfy['basic2021'] == 13].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc3)
+    dfc14 = dfy[dfy['basic2021'] == 14].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc4)
+    dfc15 = dfy[dfy['basic2021'] == 15].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc5)
+    dfc16 = dfy[dfy['basic2021'] == 16].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc6)
+    dfc17 = dfy[dfy['basic2021'] == 17].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc7)
+    dfc18 = dfy[dfy['basic2021'] == 18].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc8)
+    dfc19 = dfy[dfy['basic2021'] == 19].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc19)
+    dfc20 = dfy[dfy['basic2021'] == 20].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    print(dfc0)
+    dfc21 = dfy[dfy['basic2021'] == 21].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc1)
+    dfc22 = dfy[dfy['basic2021'] == 22].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc2)
+    dfc23 = dfy[dfy['basic2021'] == 23].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc3)
+    dfc27 = dfy[dfy['basic2021'] == 27].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc27)
+    dfc28 = dfy[dfy['basic2021'] == 28].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc28)
+    dfc32 = dfy[dfy['basic2021'] == 32].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc32)
+    dfc34 = dfy[dfy['basic2021'] == 34].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc34)
+    dfc35 = dfy[dfy['basic2021'] == 35].sort_values('basic2021') # Creates a data frame for each year for the classifications
+    # print(dfc35)
+
+'''
 
 
 # Calls for the recursion 
@@ -398,6 +471,7 @@ for i in range(len(year_breakpoints)):
 #Sollution: redo the basic matplot code 
 
 #CURRENT ISSUE 
+#Data has visualization issues (overlaping text)
 
 
 # OLD ISSUES
@@ -408,3 +482,5 @@ for i in range(len(year_breakpoints)):
             # git add /Users/Chris/Desktop/Codeing/PER/AIP
             # git commit -m "stuff"
             # git push origin main
+    #Current Issue Histograms produced are not correct 
+        #Fixed: using bar and group bar graphs    
