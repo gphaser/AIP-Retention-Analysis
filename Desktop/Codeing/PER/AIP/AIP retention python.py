@@ -328,7 +328,7 @@ def rows_20(n):
 
 
 # Calls for the recursion 
-row_1(0)
+# row_1(0)
 # rows_2(0)
 # rows_5(0)
 # rows_10(0)
@@ -350,7 +350,6 @@ year_breakpoints = [765, 1529, 2296, 3060, 3820, 4583, 5346, 6107, 6866, 7619, 8
 datasets = {}
 
 # Iterate over each year
-'''
 
 for i in range(len(year_breakpoints)):
     start_index = year_breakpoints[i-1] if i > 0 else 0
@@ -360,27 +359,27 @@ for i in range(len(year_breakpoints)):
     dfy = datasets[f"year_{i+1}"] = df.iloc[start_index:end_index]
     # grouping by the 'Carnege' column
     dfo = dfy.sort_values('obereg') # sorts dataset by obreg value
-    # print(dfc)
+    # print(dfo)
     dfo0 = dfy[dfy['obereg'] == 0].sort_values('obereg') # Creates a data frame for each year for the classifications
-    print(dfc0)
+    # print(dfo0)
     dfo1 = dfy[dfy['obereg'] == 1].sort_values('obereg') # Creates a data frame for each year for the classifications
-    # print(dfc1)
+    # print(dfo1)
     dfo2 = dfy[dfy['obereg'] == 2].sort_values('obereg') # Creates a data frame for each year for the classifications
-    # print(dfc2)
+    # print(dfo2)
     dfo3 = dfy[dfy['obereg'] == 3].sort_values('obereg') # Creates a data frame for each year for the classifications
-    # print(dfc3)
+    # print(dfo3)
     dfo4 = dfy[dfy['obereg'] == 4].sort_values('obereg') # Creates a data frame for each year for the classifications
-    # print(dfc4)
+    # print(dfo4)
     dfo5 = dfy[dfy['obereg'] == 5].sort_values('obereg') # Creates a data frame for each year for the classifications
-    # print(dfc5)
+    # print(dfo5)
     dfo6 = dfy[dfy['obereg'] == 6].sort_values('obereg') # Creates a data frame for each year for the classifications
-    # print(dfc6)
+    # print(dfo6)
     dfo7 = dfy[dfy['obereg'] == 7].sort_values('obereg') # Creates a data frame for each year for the classifications
-    # print(dfc7)
+    # print(dfo7)
     dfo8 = dfy[dfy['obereg'] == 8].sort_values('obereg') # Creates a data frame for each year for the classifications
-    # print(dfc8)
+    # print(dfo8)
     dfo9 = dfy[dfy['obereg'] == 9].sort_values('obereg') # Creates a data frame for each year for the classifications
-    # print(dfc9)
+    # print(dfo9)
 
 '''
 #iterate over Canrage Clasification
@@ -392,11 +391,13 @@ for i in range(len(year_breakpoints)):
     
     # Create a dataset for the current year
     dfy = datasets[f"year_{i+1}"] = df.iloc[start_index:end_index]
-    # grouping by the 'basic2021' column for Carnagee clasification 
+    # Convert 'basic2021' column to numeric type, and removes errors
+    dfy.loc[:, 'basic2021'] = pd.to_numeric(dfy['basic2021'], errors='coerce')
+    # Sort the DataFrame by the 'basic2021' column
     dfc = dfy.sort_values('basic2021') # sorts dataset by basic2021 value 0-23, 27, 28, 32, 34, 35
     # print(dfc)
     dfc0 = dfy[dfy['basic2021'] == 0].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    print(dfc0)
+    # print(dfc0)
     dfc1 = dfy[dfy['basic2021'] == 1].sort_values('basic2021') # Creates a data frame for each year for the classifications
     # print(dfc1)
     dfc2 = dfy[dfy['basic2021'] == 2].sort_values('basic2021') # Creates a data frame for each year for the classifications
@@ -416,33 +417,73 @@ for i in range(len(year_breakpoints)):
     dfc9 = dfy[dfy['basic2021'] == 9].sort_values('basic2021') # Creates a data frame for each year for the classifications
     # print(dfc9)
     dfc10 = dfy[dfy['basic2021'] == 10].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    print(dfc0)
+    # print(dfc10)
     dfc11 = dfy[dfy['basic2021'] == 11].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc1)
+    # print(dfc11)
     dfc12 = dfy[dfy['basic2021'] == 12].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc2)
+    # print(dfc12)
     dfc13 = dfy[dfy['basic2021'] == 13].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc3)
+    # print(dfc13)
     dfc14 = dfy[dfy['basic2021'] == 14].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc4)
+    # print(dfc14)
     dfc15 = dfy[dfy['basic2021'] == 15].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc5)
+    # print(dfc15)
     dfc16 = dfy[dfy['basic2021'] == 16].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc6)
+    # print(dfc16)
     dfc17 = dfy[dfy['basic2021'] == 17].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc7)
+    print(dfc17)
+    num_rows = len(dfc17)
+    print("Number of rows:", num_rows)
+        # histogran ineach year
+    def row_1(n):
+        if n > len(dfc17):
+            print(n, "is this")
+            # Selecting the row and columns B-F from DataFrame dfm
+            selected_row = dfc17.iloc[n,[10, 11, 12, 14, 15]]
+            categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE Master', 'DEGREE Phd']
+            print(selected_row)
+            # Plotting a histogram of the selected row
+            # selected_row.plot.hist()
+            plt.bar(categories, selected_row)
+            # Add data labels above each bar
+            for i, value in enumerate(selected_row):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+n))
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show() 
+            print('end')
+        else:
+            print(n)
+            # Selecting the row and columns B-F from DataFrame dfm
+            selected_row = dfc17.iloc[n,[10, 11, 12, 14, 15]] 
+            print(selected_row)
+            # Plotting a histogram of the selected row
+            categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE Master', 'DEGREE Phd']
+            plt.bar(categories, selected_row)
+            # Add data labels above each bar
+            for i, value in enumerate(selected_row):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+n))
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()  
+            n = n + 1
+            row_1(n)
+    row_1(0)
+
     dfc18 = dfy[dfy['basic2021'] == 18].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc8)
+    # print(dfc18)
     dfc19 = dfy[dfy['basic2021'] == 19].sort_values('basic2021') # Creates a data frame for each year for the classifications
     # print(dfc19)
     dfc20 = dfy[dfy['basic2021'] == 20].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    print(dfc0)
+    # print(dfc20)
     dfc21 = dfy[dfy['basic2021'] == 21].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc1)
+    # print(dfc21)
     dfc22 = dfy[dfy['basic2021'] == 22].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc2)
+    # print(dfc22)
     dfc23 = dfy[dfy['basic2021'] == 23].sort_values('basic2021') # Creates a data frame for each year for the classifications
-    # print(dfc3)
+    # print(dfc23)
     dfc27 = dfy[dfy['basic2021'] == 27].sort_values('basic2021') # Creates a data frame for each year for the classifications
     # print(dfc27)
     dfc28 = dfy[dfy['basic2021'] == 28].sort_values('basic2021') # Creates a data frame for each year for the classifications
@@ -454,7 +495,13 @@ for i in range(len(year_breakpoints)):
     dfc35 = dfy[dfy['basic2021'] == 35].sort_values('basic2021') # Creates a data frame for each year for the classifications
     # print(dfc35)
 
-'''
+
+#SO now with data frames for obreg regional clasifications and frames for carnagee now need to do histograms for them following the inital set
+# LOOK AT ROWS K, L, M, O, P for 'GRAD Total', 'International', 'Domestic','First year','DEGREE Master', 'Degree PHD' 
+# So rows 10, 11, 12, 14, 15 
+
+
+
 
 
 # Calls for the recursion 
