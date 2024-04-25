@@ -435,18 +435,39 @@ for i in range(len(year_breakpoints)):
     num_rows = len(dfc17)
     print("Number of rows:", num_rows)
         # histogran ineach year
+    # ISSUE NEED TO COELATE THE DATA INTO A SINGULAR HISTOGRAM, 2nd GET RID OF NaN VALUES FOR THE GRAP
+    # POSSIBLE SOLUTION, STORE CATGORIES AS VARIABLE AND PRINT AT THE END OF RECUSION LOOP UNDER THE IF STATEMENT 
+    Grad_Total = 0
+    International = 0
+    Domestic = 0
+    First_year = 0
+    Degree_Master = 0
+    Degree_Phd = 0
+    Degree_Total = 0  
     def row_1(n):
-        if n > len(dfc17):
+        global Grad_Total
+        global International
+        global Domestic
+        global First_year
+        global Degree_Master
+        global Degree_Phd 
+        global Degree_Total 
+        if n >= len(dfc17):
             print(n, "is this")
+            print (Grad_Total)
+            print (International)
+            print (Domestic)
+            print (First_year)
+            print (Degree_Total)
             # Selecting the row and columns B-F from DataFrame dfm
-            selected_row = dfc17.iloc[n,[10, 11, 12, 14, 15]]
-            categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE Master', 'DEGREE Phd']
-            print(selected_row)
+            categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
+            values = [Grad_Total, International, Domestic , First_year, Degree_Total]  # Sample values for each category
+            # print(selected_row) **** 
             # Plotting a histogram of the selected row
             # selected_row.plot.hist()
-            plt.bar(categories, selected_row)
+            plt.bar(categories, values)
             # Add data labels above each bar
-            for i, value in enumerate(selected_row):
+            for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
             plt.title("Data for " + str(2002+n))
             plt.ylabel("Values")
@@ -455,11 +476,19 @@ for i in range(len(year_breakpoints)):
             print('end')
         else:
             print(n)
-            # Selecting the row and columns B-F from DataFrame dfm
+            # Selecting the row and columns from DataFrame dfc
             selected_row = dfc17.iloc[n,[10, 11, 12, 14, 15]] 
-            print(selected_row)
-            # Plotting a histogram of the selected row
-            categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE Master', 'DEGREE Phd']
+            # ISSUE NOT ICRIMENTING VALUE 
+            Grad_Total += Grad_Total + pd.notnull(dfc17.iloc[n,[10]])
+            International += International + pd.notnull(dfc17.iloc[n,[11]])
+            Domestic += Grad_Total - International
+            First_year += First_year + pd.notnull(dfc17.iloc[n,[12]])
+            Degree_Master += Degree_Master + pd.notnull(dfc17.iloc[n,[14]])
+            Degree_Phd += Degree_Phd+ pd.notnull(dfc17.iloc[n,[15]]) 
+            Degree_Total += Degree_Master + Degree_Phd 
+            # Plotting a histogram of the selected row 
+            '''
+            categories = ['GRAD Total', 'International','First year','DEGREE Master', 'DEGREE Phd']
             plt.bar(categories, selected_row)
             # Add data labels above each bar
             for i, value in enumerate(selected_row):
@@ -467,7 +496,8 @@ for i in range(len(year_breakpoints)):
             plt.title("Data for " + str(2002+n))
             plt.ylabel("Values")
             plt.xlabel('Groups')
-            plt.show()  
+            plt.show()
+            '''  
             n = n + 1
             row_1(n)
     row_1(0)
@@ -512,10 +542,10 @@ for i in range(len(year_breakpoints)):
 # rows_20(0)
 
 
-# CURRENT WORK GRAPHS
+# CURRENT WORK GRAPHS for new organization
 
-#Current Issue Histograms produced are not correct 
-#Sollution: redo the basic matplot code 
+#Current Issue Histograms for new data are working but not right 
+# FIX THEM
 
 #CURRENT ISSUE 
 #Data has visualization issues (overlaping text)
@@ -531,3 +561,5 @@ for i in range(len(year_breakpoints)):
             # git push origin main
     #Current Issue Histograms produced are not correct 
         #Fixed: using bar and group bar graphs    
+    #Current Issue Histograms produced are not correct 
+        #Sollution: redo the basic matplot code 
