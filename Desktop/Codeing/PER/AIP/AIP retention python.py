@@ -346,6 +346,15 @@ def rows_20(n):
 year_breakpoints = [765, 1529, 2296, 3060, 3820, 4583, 5346, 6107, 6866, 7619, 8370, 
                     9123, 9875, 10627, 11378, 12138, 12899, 13667, 14430, 15185, 15931]
 
+# GLOABAL VARIABLES
+Grad_Total = 0
+International = 0
+Domestic = 0
+First_year = 0
+Degree_Master = 0
+Degree_Phd = 0
+Degree_Total = 0
+
 # Initialize a dictionary to hold datasets for each year
 datasets = {}
 
@@ -435,15 +444,8 @@ for i in range(len(year_breakpoints)):
     num_rows = len(dfc17)
     print("Number of rows:", num_rows)
         # histogran ineach year
-    # ISSUE NEED TO COELATE THE DATA INTO A SINGULAR HISTOGRAM, 2nd GET RID OF NaN VALUES FOR THE GRAP
-    # POSSIBLE SOLUTION, STORE CATGORIES AS VARIABLE AND PRINT AT THE END OF RECUSION LOOP UNDER THE IF STATEMENT 
-    Grad_Total = 0
-    International = 0
-    Domestic = 0
-    First_year = 0
-    Degree_Master = 0
-    Degree_Phd = 0
-    Degree_Total = 0  
+    # ISSUE GET RID OF NaN VALUES FOR THE GRAP
+    # POSSIBLE SOLUTION DROP NaN values
     def row_1(n):
         global Grad_Total
         global International
@@ -478,26 +480,17 @@ for i in range(len(year_breakpoints)):
             print(n)
             # Selecting the row and columns from DataFrame dfc
             selected_row = dfc17.iloc[n,[10, 11, 12, 14, 15]] 
-            # ISSUE NOT ICRIMENTING VALUE 
-            Grad_Total += Grad_Total + pd.notnull(dfc17.iloc[n,[10]])
-            International += International + pd.notnull(dfc17.iloc[n,[11]])
-            Domestic += Grad_Total - International
-            First_year += First_year + pd.notnull(dfc17.iloc[n,[12]])
-            Degree_Master += Degree_Master + pd.notnull(dfc17.iloc[n,[14]])
-            Degree_Phd += Degree_Phd+ pd.notnull(dfc17.iloc[n,[15]]) 
-            Degree_Total += Degree_Master + Degree_Phd 
-            # Plotting a histogram of the selected row 
-            '''
-            categories = ['GRAD Total', 'International','First year','DEGREE Master', 'DEGREE Phd']
-            plt.bar(categories, selected_row)
-            # Add data labels above each bar
-            for i, value in enumerate(selected_row):
-                plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+n))
-            plt.ylabel("Values")
-            plt.xlabel('Groups')
-            plt.show()
-            '''  
+            print (selected_row)
+            # ISSUE NOT ICRIMENTING VALUE  379 should add 9 
+            Grad_Total += dfc17.iloc[n,10]
+            # print ("the number to add is", pd.notnull(dfc17.iloc[n,[10]]))
+            # print("THE GRAD TOTAL IS", Grad_Total)
+            International += dfc17.iloc[n,11]
+            Domestic = Grad_Total - International
+            First_year +=  dfc17.iloc[n,12]
+            Degree_Master +=  dfc17.iloc[n,14]
+            Degree_Phd += dfc17.iloc[n,15]
+            Degree_Total = Degree_Master + Degree_Phd 
             n = n + 1
             row_1(n)
     row_1(0)
