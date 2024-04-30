@@ -430,7 +430,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 0")
+            plt.title("Data for " + str(2002+Year_c)+ " for 0")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -441,7 +441,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -499,7 +498,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 1")
+            plt.title("Data for " + str(2002+Year_c) + " for 1")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -509,8 +508,7 @@ for i in range(len(year_breakpoints)):
             First_year = 0 
             Degree_Master = 0
             Degree_Phd = 0
-            Degree_Total = 0
-            Year_c += 1 
+            Degree_Total = 0 
             print('end')
         else:
             print(n)
@@ -570,7 +568,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 2")
+            plt.title("Data for " + str(2002+Year_c) + " for 2")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -581,7 +579,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -640,7 +637,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 3")
+            plt.title("Data for " + str(2002+Year_c) + " for 3")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -651,7 +648,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -710,7 +706,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 4")
+            plt.title("Data for " + str(2002+Year_c) + " for 4")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -721,7 +717,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -780,7 +775,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 5")
+            plt.title("Data for " + str(2002+Year_c) + " for 5")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -791,7 +786,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -850,7 +844,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 6")
+            plt.title("Data for " + str(2002+Year_c) + " for 6")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -861,7 +855,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -920,7 +913,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 7")
+            plt.title("Data for " + str(2002+Year_c) + " for 7")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -931,7 +924,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -990,7 +982,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 8")
+            plt.title("Data for " + str(2002+Year_c) + " for 8")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1000,8 +992,7 @@ for i in range(len(year_breakpoints)):
             First_year = 0 
             Degree_Master = 0
             Degree_Phd = 0
-            Degree_Total = 0
-            Year_c += 1 
+            Degree_Total = 0 
             print('end')
         else:
             print(n)
@@ -1060,7 +1051,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 9")
+            plt.title("Data for " + str(2002+Year_c) + " for 9")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1071,7 +1062,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -1130,7 +1120,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 10")
+            plt.title("Data for " + str(2002+Year_c) + " for 10")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1140,8 +1130,7 @@ for i in range(len(year_breakpoints)):
             First_year = 0 
             Degree_Master = 0
             Degree_Phd = 0
-            Degree_Total = 0
-            Year_c += 1 
+            Degree_Total = 0 
             print('end')
         else:
             print(n)
@@ -1200,7 +1189,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 11")
+            plt.title("Data for " + str(2002+Year_c) + " for 11")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1210,8 +1199,7 @@ for i in range(len(year_breakpoints)):
             First_year = 0 
             Degree_Master = 0
             Degree_Phd = 0
-            Degree_Total = 0
-            Year_c += 1 
+            Degree_Total = 0 
             print('end')
         else:
             print(n)
@@ -1270,7 +1258,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 12")
+            plt.title("Data for " + str(2002+Year_c) + " for 12")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1281,7 +1269,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -1340,7 +1327,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 13")
+            plt.title("Data for " + str(2002+Year_c) + " for 13")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1351,7 +1338,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -1410,7 +1396,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 14")
+            plt.title("Data for " + str(2002+Year_c) + " for 14")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1421,7 +1407,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -1480,7 +1465,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 15")
+            plt.title("Data for " + str(2002+Year_c) + " for 15")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1491,7 +1476,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -1550,7 +1534,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 16")
+            plt.title("Data for " + str(2002+Year_c) + " for 16")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1560,8 +1544,7 @@ for i in range(len(year_breakpoints)):
             First_year = 0 
             Degree_Master = 0
             Degree_Phd = 0
-            Degree_Total = 0
-            Year_c += 1 
+            Degree_Total = 0 
             print('end')
         else:
             print(n)
@@ -1625,7 +1608,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 17")
+            plt.title("Data for " + str(2002+Year_c) + " for 17")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1635,8 +1618,7 @@ for i in range(len(year_breakpoints)):
             First_year = 0 
             Degree_Master = 0
             Degree_Phd = 0
-            Degree_Total = 0
-            Year_c += 1 
+            Degree_Total = 0 
             print('end')
         else:
             print(n)
@@ -1695,7 +1677,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 18")
+            plt.title("Data for " + str(2002+Year_c) + " for 18")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1705,8 +1687,7 @@ for i in range(len(year_breakpoints)):
             First_year = 0 
             Degree_Master = 0
             Degree_Phd = 0
-            Degree_Total = 0
-            Year_c += 1 
+            Degree_Total = 0 
             print('end')
         else:
             print(n)
@@ -1765,7 +1746,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 19")
+            plt.title("Data for " + str(2002+Year_c) + " for 19")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1775,8 +1756,7 @@ for i in range(len(year_breakpoints)):
             First_year = 0 
             Degree_Master = 0
             Degree_Phd = 0
-            Degree_Total = 0
-            Year_c += 1 
+            Degree_Total = 0 
             print('end')
         else:
             print(n)
@@ -1835,7 +1815,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 20")
+            plt.title("Data for " + str(2002+Year_c) + " for 20")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1846,7 +1826,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -1905,7 +1884,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 21")
+            plt.title("Data for " + str(2002+Year_c) + " for 21")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1915,8 +1894,7 @@ for i in range(len(year_breakpoints)):
             First_year = 0 
             Degree_Master = 0
             Degree_Phd = 0
-            Degree_Total = 0
-            Year_c += 1 
+            Degree_Total = 0 
             print('end')
         else:
             print(n)
@@ -1975,7 +1953,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 22")
+            plt.title("Data for " + str(2002+Year_c) + " for 22")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -1986,7 +1964,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -2045,7 +2022,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 23")
+            plt.title("Data for " + str(2002+Year_c) + " for 23")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -2056,7 +2033,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -2115,7 +2091,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 27")
+            plt.title("Data for " + str(2002+Year_c) + " for 27")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -2126,7 +2102,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -2185,7 +2160,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 28")
+            plt.title("Data for " + str(2002+Year_c) + " for 28")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -2196,7 +2171,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -2255,7 +2229,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 32")
+            plt.title("Data for " + str(2002+Year_c) + " for 32")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -2266,7 +2240,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -2325,7 +2298,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 34")
+            plt.title("Data for " + str(2002+Year_c) + " for 34")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
@@ -2336,7 +2309,6 @@ for i in range(len(year_breakpoints)):
             Degree_Master = 0
             Degree_Phd = 0
             Degree_Total = 0
-            Year_c += 1 
             print('end')
         else:
             print(n)
@@ -2395,7 +2367,7 @@ for i in range(len(year_breakpoints)):
             plt.bar(categories, values)
             for i, value in enumerate(values):
                 plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c), "for 35")
+            plt.title("Data for " + str(2002+Year_c) + " for 35")
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
