@@ -372,24 +372,695 @@ for i in range(len(year_breakpoints)):
     # print(dfo)
     dfo0 = dfy[dfy['obereg'] == 0].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo0)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo0):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 0")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo0.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo0.iloc[n, 10]):
+                Grad_Total += dfo0.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo0.iloc[n, 11]):
+                International += dfo0.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo0.iloc[n, 12]):
+                First_year += dfo0.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo0.iloc[n, 14]):    
+                Degree_Master += dfo0.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo0.iloc[n, 15]):
+                Degree_Phd += dfo0.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
     dfo1 = dfy[dfy['obereg'] == 1].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo1)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo1):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 1")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo1.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo1.iloc[n, 10]):
+                Grad_Total += dfo1.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo1.iloc[n, 11]):
+                International += dfo1.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo1.iloc[n, 12]):
+                First_year += dfo1.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo1.iloc[n, 14]):    
+                Degree_Master += dfo1.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo1.iloc[n, 15]):
+                Degree_Phd += dfo1.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
     dfo2 = dfy[dfy['obereg'] == 2].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo2)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo2):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 2")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo2.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo2.iloc[n, 10]):
+                Grad_Total += dfo2.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo2.iloc[n, 11]):
+                International += dfo2.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo2.iloc[n, 12]):
+                First_year += dfo2.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo2.iloc[n, 14]):    
+                Degree_Master += dfo2.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo2.iloc[n, 15]):
+                Degree_Phd += dfo2.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
     dfo3 = dfy[dfy['obereg'] == 3].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo3)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo3):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 3")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo3.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo3.iloc[n, 10]):
+                Grad_Total += dfo3.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo3.iloc[n, 11]):
+                International += dfo3.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo3.iloc[n, 12]):
+                First_year += dfo3.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo3.iloc[n, 14]):    
+                Degree_Master += dfo3.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo3.iloc[n, 15]):
+                Degree_Phd += dfo3.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
     dfo4 = dfy[dfy['obereg'] == 4].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo4)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo4):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 4")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo4.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo4.iloc[n, 10]):
+                Grad_Total += dfo4.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo4.iloc[n, 11]):
+                International += dfo4.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo4.iloc[n, 12]):
+                First_year += dfo4.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo4.iloc[n, 14]):    
+                Degree_Master += dfo4.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo4.iloc[n, 15]):
+                Degree_Phd += dfo4.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
     dfo5 = dfy[dfy['obereg'] == 5].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo5)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo5):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 5")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo5.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo5.iloc[n, 10]):
+                Grad_Total += dfo5.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo5.iloc[n, 11]):
+                International += dfo5.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo5.iloc[n, 12]):
+                First_year += dfo5.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo5.iloc[n, 14]):    
+                Degree_Master += dfo5.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo5.iloc[n, 15]):
+                Degree_Phd += dfo5.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
     dfo6 = dfy[dfy['obereg'] == 6].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo6)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo6):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 6")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo6.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo6.iloc[n, 10]):
+                Grad_Total += dfo6.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo6.iloc[n, 11]):
+                International += dfo6.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo6.iloc[n, 12]):
+                First_year += dfo6.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo6.iloc[n, 14]):    
+                Degree_Master += dfo6.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo6.iloc[n, 15]):
+                Degree_Phd += dfo6.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
     dfo7 = dfy[dfy['obereg'] == 7].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo7)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo7):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 7")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo7.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo7.iloc[n, 10]):
+                Grad_Total += dfo7.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo7.iloc[n, 11]):
+                International += dfo7.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo7.iloc[n, 12]):
+                First_year += dfo7.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo7.iloc[n, 14]):    
+                Degree_Master += dfo7.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo7.iloc[n, 15]):
+                Degree_Phd += dfo7.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
     dfo8 = dfy[dfy['obereg'] == 8].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo8)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo8):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 8")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo8.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo8.iloc[n, 10]):
+                Grad_Total += dfo8.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo8.iloc[n, 11]):
+                International += dfo8.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo8.iloc[n, 12]):
+                First_year += dfo8.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo8.iloc[n, 14]):    
+                Degree_Master += dfo8.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo8.iloc[n, 15]):
+                Degree_Phd += dfo8.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
     dfo9 = dfy[dfy['obereg'] == 9].sort_values('obereg') # Creates a data frame for each year for the classifications
     # print(dfo9)
+    def row_1(n):
+        global Grad_Total
+        global International 
+        global Domestic 
+        global First_year
+        global Degree_Master
+        global Degree_Phd
+        global Degree_Total
+        global Year_c
+        if n >= len(dfo9):
+            print(n, "is this")
+            print(Grad_Total)
+            print(International)
+            print(First_year)
+            print(Degree_Total)
+
+            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+            
+            plt.bar(categories, values)
+            for i, value in enumerate(values):
+                plt.text(i, value + 1, str(value), ha='center', va='bottom')
+            plt.title("Data for " + str(2002+Year_c) + " for Obreg 9")
+            plt.ylabel("Values")
+            plt.xlabel('Groups')
+            plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0
+            Year_c += 1 
+            print('end')
+        else:
+            print(n)
+            selected_row = dfo9.iloc[n, [10, 11, 12, 14, 15]]
+            print(selected_row)
+            if pd.notnull(dfo9.iloc[n, 10]):
+                Grad_Total += dfo9.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfo9.iloc[n, 11]):
+                International += dfo9.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfo9.iloc[n, 12]):
+                First_year += dfo9.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfo9.iloc[n, 14]):    
+                Degree_Master += dfo9.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfo9.iloc[n, 15]):
+                Degree_Phd += dfo9.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
+            Degree_Total = Degree_Master + Degree_Phd
+            print("Values after updating:")
+            print("Grad_Total:", Grad_Total)
+            print("International:", International)
+            print("First_year:", First_year)
+            print("Degree_Total:", Degree_Total)
+            n = n + 1
+            row_1(n)
+    row_1(0)
 
 '''
 #iterate over Canrage Clasification
