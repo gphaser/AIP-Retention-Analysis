@@ -484,11 +484,26 @@ for i in range(len(year_breakpoints)):
             print(n)
             selected_row = dfc17.iloc[n, [10, 11, 12, 14, 15]]
             print(selected_row)
-            Grad_Total += dfc17.iloc[n, 10]
-            International += dfc17.iloc[n, 11]
-            First_year += dfc17.iloc[n, 12]
-            Degree_Master += dfc17.iloc[n, 14]
-            Degree_Phd += dfc17.iloc[n, 15]
+            if pd.notnull(dfc17.iloc[n, 10]):
+                Grad_Total += dfc17.iloc[n, 10]
+            else:
+                Grad_Total = Grad_Total
+            if pd.notnull(dfc17.iloc[n, 11]):
+                International += dfc17.iloc[n, 11]
+            else:
+                International = International
+            if pd.notnull(dfc17.iloc[n, 12]):
+                First_year += dfc17.iloc[n, 12]
+            else: 
+                First_year = First_year
+            if pd.notnull(dfc17.iloc[n, 14]):    
+                Degree_Master += dfc17.iloc[n, 14]
+            else:
+                Degree_Master = Degree_Master
+            if pd.notnull(dfc17.iloc[n, 15]):
+                Degree_Phd += dfc17.iloc[n, 15]
+            else:
+                Degree_Phd = Degree_Phd
             Degree_Total = Degree_Master + Degree_Phd
             print("Values after updating:")
             print("Grad_Total:", Grad_Total)
