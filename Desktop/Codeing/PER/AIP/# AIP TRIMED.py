@@ -1,3 +1,4 @@
+# AIP TRIMED 
 # This File serves to convert the AIP Retetion document into pyton form for data visulization and for GitHub updates 
 # Comments such as these will be made either at key points along the code to inform readers or to serve as markers for updates
 # print("hello world")
@@ -11,13 +12,13 @@ import numpy as np
 
 
 # Read the Excel file into a pandas DataFrame
-df = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/AIP Retention.xlsx")
+df = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/Cleaned AIP Retention.xlsx")
 # Specify the sheet name or index
 Retention = 'Retention'  
 Math = 'Math'
 # Read data from the specified sheet
-dfr = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/AIP Retention.xlsx", sheet_name=Retention) # Full Data set trimed for ease
-dfm = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/AIP Retention.xlsx", sheet_name=Math) #simplified math data
+# dfr = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/Cleaned AIP Retention.xlsx", sheet_name=Retention) # Full Data set trimed for ease
+# dfm = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/Cleaned AIP Retention.xlsx", sheet_name=Math) #simplified math data
 
 
 # Now you can work with the data in the DataFrame
@@ -32,13 +33,13 @@ dfm = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/AIP Retention.xlsx", s
 # use code df.loc[row wanted],or for multiple df.iloc[first row wanted:last row wanted]
 #df.iloc[:, [1, 2, 5]] Select columns in positions 1, 2 and 5 (firstcolumn is 0).
 
-num_rows = len(dfm)
+num_rows = len(df)
 print("Number of rows:", num_rows)
 print("rember to uncoment recursion, and carnagee orginization and comment this line")
 
 # generic histograms
 # CURRENTLY PRODUCES HISTOGRAMS BUT NOT OF PROPER TYPE TO BE FIXED ASAP 4-5-24
-
+'''
 def row_1(n):
     if n >= 20:
         print(n, "is this")
@@ -274,7 +275,7 @@ def rows_20(n):
         # Add data labels above each bar
         for i, value in enumerate(selected_row1):
             plt.text(i - bar_width*20, value + 1, str(value), ha='center', va='bottom')
-        '''
+# KEEEP TK COMEMNTED OUT 
         for i, value in enumerate(selected_row2):
             plt.text(i - bar_width*19, value + 1, str(value), ha='center', va='bottom')
         for i, value in enumerate(selected_row3):
@@ -313,7 +314,7 @@ def rows_20(n):
             plt.text(i - bar_width*2, value + 1, str(value), ha='center', va='bottom')
         for i, value in enumerate(selected_row20):
             plt.text(i - bar_width, value + 1, str(value), ha='center', va='bottom')
-        '''    
+
         for i, value in enumerate(selected_row21):
             plt.text(i, value + 1, str(value), ha='center', va='bottom')
         plt.title("Data for " + str(2002+n)+'-'+str(2002+n+20))
@@ -325,7 +326,7 @@ def rows_20(n):
         print(n)
     else: 
         print("error")
-
+''' 
 
 # Calls for the recursion 
 # row_1(0)
@@ -343,8 +344,7 @@ def rows_20(n):
 # groups are 0-9 for the different regions
 
 # Year breakpoints
-year_breakpoints = [765, 1529, 2296, 3060, 3820, 4583, 5346, 6107, 6866, 7619, 8370, 
-                    9123, 9875, 10627, 11378, 12138, 12899, 13667, 14430, 15185, 15931]
+year_breakpoints = [166, 333, 510, 669, 837, 1005, 1173, 1341, 1509, 1677, 1845, 2013, 2181, 2348, 2515, 2682, 2849, 3016, 3183, 3350]
 
 # GLOABAL VARIABLES
 Grad_Total = 0
@@ -1065,7 +1065,7 @@ for i in range(len(year_breakpoints)):
 '''
 #iterate over Canrage Clasification
 '''
-Year_c = 0  
+Year_c  = 0 
 for i in range(len(year_breakpoints)):
     start_index = year_breakpoints[i-1] if i > 0 else 0
     end_index = year_breakpoints[i]
@@ -3116,7 +3116,7 @@ for i in range(len(year_breakpoints)):
         # FIXED BY ADDING MATPLOT
     # Git HUB not working 
         # FIX USE THE FOLLOWING TO PUSH
-            # git add /Users/Chris/Desktop/Codeing/PER/AIP
+            # git add /Users/Chris/Desktop/Codeing/PER/# AIP TRIMED
             # git commit -m "stuff"
             # git push origin main
     #Current Issue Histograms produced are not correct 
