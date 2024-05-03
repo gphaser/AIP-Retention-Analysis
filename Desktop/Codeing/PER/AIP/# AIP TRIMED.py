@@ -339,6 +339,8 @@ filtered_data = df[df['year'] > 2011]
 
 # Group by 'obereg' and 'year' and perform aggregation 
 
+filtered_data = df[df['year'] > 2011] 
+
 grouped_data = filtered_data.groupby(['obereg', 'year']).agg(
     n=('year', 'count'),
     total_grad=('grad_total', 'sum'),
@@ -352,11 +354,24 @@ grouped_data = filtered_data.groupby(['obereg', 'year']).agg(
 grouped_data['total_domestic'] = grouped_data['total_grad'] - grouped_data['total_international']
 grouped_data['total_degree'] = grouped_data['total_mast'] + grouped_data['total_phd']
 
+grouped_data = grouped_data.sort_values(by=['obereg', 'year']) 
 
-print(grouped_data) 
+grouped_data['total_lost'] = (-grouped_data['total_grad'] + grouped_data['total_first'] -  
 
-# Assuming grouped_data is already defined
-# Get unique values in the 'obereg' column
+                             grouped_data['total_degree'] + grouped_data['total_grad'].shift(1))
+
+grouped_data.dropna(inplace=True)
+
+grouped_data = grouped_data[grouped_data['year'] > 2012]
+
+total_atrition = grouped_data['total_lost']/grouped_data['total_grad'] * 100 
+total_retention = 100 - total_atrition
+
+print('Total ATRITION %', total_atrition)
+print('Total RETENTION %', total_retention)
+
+print(grouped_data['total_lost'])
+
 unique_obereg = grouped_data['obereg'].unique()
 
 # Plot each unique 'obereg' group separately
@@ -372,7 +387,8 @@ for obereg_value in unique_obereg:
     plt.plot(obereg_group['year'], obereg_group['total_domestic'], label='Total Domestic Graduates')
     plt.plot(obereg_group['year'], obereg_group['total_first'], label='Total First Years')
     plt.plot(obereg_group['year'], obereg_group['total_degree'], label='Total Degrees Earned')
- 
+    plt.plot(obereg_group['year'], obereg_group['total_lost'], label='Retention Value')
+    
     
     # Set labels and title
     plt.xlabel('Year')
