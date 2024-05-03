@@ -23,8 +23,6 @@ print("rember to uncoment recursion, and carnagee orginization and comment this 
 
 filtered_data = df[df['year'] > 2011] 
 
-  
-
 # Group by 'obereg' and 'year' and perform aggregation 
 
 grouped_data = filtered_data.groupby(['obereg', 'year']).agg(
