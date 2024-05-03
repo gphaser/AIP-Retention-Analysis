@@ -361,6 +361,8 @@ datasets = {}
 
 # Iterate over each year
 
+
+
 for i in range(len(year_breakpoints)):
     start_index = year_breakpoints[i-1] if i > 0 else 0
     end_index = year_breakpoints[i]
@@ -398,6 +400,14 @@ for i in range(len(year_breakpoints)):
             plt.ylabel("Values")
             plt.xlabel('Groups')
             plt.show()
+            Grad_Total = 0
+            International = 0 
+            Domestic = 0
+            First_year = 0 
+            Degree_Master = 0
+            Degree_Phd = 0
+            Degree_Total = 0 
+            
             Grad_Total = 0
             International = 0 
             Domestic = 0
@@ -1089,30 +1099,33 @@ for i in range(len(year_breakpoints)):
         global Degree_Total
         global Year_c
         if n >= len(dfc0):
-            print(n, "is this")
-            print(Grad_Total)
-            print(International)
-            print(First_year)
-            print(Degree_Total)
+            if Grad_Total and International and Domestic and First_year and Degree_Master and Degree_Phd and Degree_Total > 0: 
+                print(n, "is this")
+                print(Grad_Total)
+                print(International)
+                print(First_year)
+                print(Degree_Total)
 
-            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
-            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
-            
-            plt.bar(categories, values)
-            for i, value in enumerate(values):
-                plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c)+ " for 0")
-            plt.ylabel("Values")
-            plt.xlabel('Groups')
-            plt.show()
-            Grad_Total = 0
-            International = 0 
-            Domestic = 0
-            First_year = 0 
-            Degree_Master = 0
-            Degree_Phd = 0
-            Degree_Total = 0
-            print('end')
+                categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+                values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+                
+                plt.bar(categories, values)
+                for i, value in enumerate(values):
+                    plt.text(i, value + 1, str(value), ha='center', va='bottom')
+                plt.title("Data for " + str(2002+Year_c)+ " for 0")
+                plt.ylabel("Values")
+                plt.xlabel('Groups')
+                plt.show()
+                Grad_Total = 0
+                International = 0 
+                Domestic = 0
+                First_year = 0 
+                Degree_Master = 0
+                Degree_Phd = 0
+                Degree_Total = 0
+                print('end')
+            else:
+                print('NO GRAPH')
         else:
             print(n)
             selected_row = dfc0.iloc[n, [10, 11, 12, 14, 15]]
@@ -1157,30 +1170,33 @@ for i in range(len(year_breakpoints)):
         global Degree_Total
         global Year_c
         if n >= len(dfc1):
-            print(n, "is this")
-            print(Grad_Total)
-            print(International)
-            print(First_year)
-            print(Degree_Total)
+            if Grad_Total and International and Domestic and First_year and Degree_Master and Degree_Phd and Degree_Total > 0: 
+                print(n, "is this")
+                print(Grad_Total)
+                print(International)
+                print(First_year)
+                print(Degree_Total)
 
-            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
-            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
-            
-            plt.bar(categories, values)
-            for i, value in enumerate(values):
-                plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c) + " for 1")
-            plt.ylabel("Values")
-            plt.xlabel('Groups')
-            plt.show()
-            Grad_Total = 0
-            International = 0 
-            Domestic = 0
-            First_year = 0 
-            Degree_Master = 0
-            Degree_Phd = 0
-            Degree_Total = 0 
-            print('end')
+                categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+                values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+                
+                plt.bar(categories, values)
+                for i, value in enumerate(values):
+                    plt.text(i, value + 1, str(value), ha='center', va='bottom')
+                plt.title("Data for " + str(2002+Year_c) + " for 1")
+                plt.ylabel("Values")
+                plt.xlabel('Groups')
+                plt.show()
+                Grad_Total = 0
+                International = 0 
+                Domestic = 0
+                First_year = 0 
+                Degree_Master = 0
+                Degree_Phd = 0
+                Degree_Total = 0 
+                print('end')
+            else: 
+                print("NO GRAPH")
         else:
             print(n)
             selected_row = dfc1.iloc[n, [10, 11, 12, 14, 15]]
@@ -1227,30 +1243,33 @@ for i in range(len(year_breakpoints)):
         global Degree_Total
         global Year_c
         if n >= len(dfc2):
-            print(n, "is this")
-            print(Grad_Total)
-            print(International)
-            print(First_year)
-            print(Degree_Total)
+            if Grad_Total and International and Domestic and First_year and Degree_Master and Degree_Phd and Degree_Total > 0: 
+                print(n, "is this")
+                print(Grad_Total)
+                print(International)
+                print(First_year)
+                print(Degree_Total)
 
-            categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
-            values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
-            
-            plt.bar(categories, values)
-            for i, value in enumerate(values):
-                plt.text(i, value + 1, str(value), ha='center', va='bottom')
-            plt.title("Data for " + str(2002+Year_c) + " for 2")
-            plt.ylabel("Values")
-            plt.xlabel('Groups')
-            plt.show()
-            Grad_Total = 0
-            International = 0 
-            Domestic = 0
-            First_year = 0 
-            Degree_Master = 0
-            Degree_Phd = 0
-            Degree_Total = 0
-            print('end')
+                categories = ['GRAD Total', 'International', 'Domestic', 'First year', 'DEGREE TOTAL']
+                values = [Grad_Total, International, Grad_Total - International, First_year, Degree_Total]
+                
+                plt.bar(categories, values)
+                for i, value in enumerate(values):
+                    plt.text(i, value + 1, str(value), ha='center', va='bottom')
+                plt.title("Data for " + str(2002+Year_c) + " for 2")
+                plt.ylabel("Values")
+                plt.xlabel('Groups')
+                plt.show()
+                Grad_Total = 0
+                International = 0 
+                Domestic = 0
+                First_year = 0 
+                Degree_Master = 0
+                Degree_Phd = 0
+                Degree_Total = 0
+                print('end')
+            else:
+                print("NO GRAPH")
         else:
             print(n)
             selected_row = dfc2.iloc[n, [10, 11, 12, 14, 15]]
@@ -3116,7 +3135,7 @@ for i in range(len(year_breakpoints)):
         # FIXED BY ADDING MATPLOT
     # Git HUB not working 
         # FIX USE THE FOLLOWING TO PUSH
-            # git add /Users/Chris/Desktop/Codeing/PER/# AIP TRIMED
+            # git add /Users/Chris/Desktop/Codeing/PER/AIP
             # git commit -m "stuff"
             # git push origin main
     #Current Issue Histograms produced are not correct 

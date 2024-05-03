@@ -332,7 +332,7 @@ def rows_20(n):
 # rows_2(0)
 # rows_5(0)
 # rows_10(0)
-# rows_20(0)
+rows_20(0)
 
 # create data sets for the CARNAGE data classifies the US into 9 regions (in obreg collum):
 # issue will have to use og data set, good news already have the stuff that i need to do it
