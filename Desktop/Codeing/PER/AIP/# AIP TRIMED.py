@@ -335,11 +335,11 @@ def rows_20(n):
 # rows_10(0)
 # rows_20(0)
 
-filtered_data = df[df['year'] > 2011] 
+filtered_data = df[df['year'] > 2009] 
 
 # Group by 'obereg' and 'year' and perform aggregation 
 
-filtered_data = df[df['year'] > 2011] 
+filtered_data = df[df['year'] > 2009] 
 
 grouped_data = filtered_data.groupby(['obereg', 'year']).agg(
     n=('year', 'count'),
@@ -362,7 +362,7 @@ grouped_data['total_lost'] = (-grouped_data['total_grad'] + grouped_data['total_
 
 grouped_data.dropna(inplace=True)
 
-grouped_data = grouped_data[grouped_data['year'] > 2012]
+grouped_data = grouped_data[grouped_data['year'] > 2010]
 
 total_atrition = grouped_data['total_lost']/grouped_data['total_grad'] * 100 
 total_retention = 100 - total_atrition
@@ -417,6 +417,19 @@ grouped_data = filtered_data.groupby(['basic2021', 'year']).agg(
 grouped_data['total_domestic'] = grouped_data['total_grad'] - grouped_data['total_international']
 grouped_data['total_degree'] = grouped_data['total_mast'] + grouped_data['total_phd']
 
+grouped_data['total_lost'] = (-grouped_data['total_grad'] + grouped_data['total_first'] -  
+
+                             grouped_data['total_degree'] + grouped_data['total_grad'].shift(1))
+
+grouped_data.dropna(inplace=True)
+
+grouped_data = grouped_data[grouped_data['year'] > 2010]
+
+total_atrition = grouped_data['total_lost']/grouped_data['total_grad'] * 100 
+total_retention = 100 - total_atrition
+
+print('Total ATRITION %', total_atrition)
+print('Total RETENTION %', total_retention)
 
 print(grouped_data) 
 
@@ -441,6 +454,7 @@ for basic2021_value in unique_basic2021:
     plt.plot(basic2021_group['year'], basic2021_group['total_domestic'], label='Total Domestic Graduates')
     plt.plot(basic2021_group['year'], basic2021_group['total_first'], label='Total First Year')
     plt.plot(basic2021_group['year'], basic2021_group['total_degree'], label='Total Degrees')
+    plt.plot(basic2021_group['year'], basic2021_group['total_lost'], label='Retention Value')
     
     # Set labels and title
     plt.xlabel('Year')
