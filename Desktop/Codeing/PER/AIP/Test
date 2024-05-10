@@ -50,6 +50,13 @@ grouped_data['total_retention'] = 100 - grouped_data['total_atrition']
 print('Total ATRITION %', grouped_data['total_atrition'])
 print('Total RETENTION %', grouped_data['total_retention'])
 
+# Determine the range of years in the dataset
+min_year = grouped_data['year'].min()
+max_year = grouped_data['year'].max()
+
+# Create an array of every year in the range
+years = np.arange(min_year, max_year + 1)
+
 # print(grouped_data['total_lost'])
 
 unique_obereg = grouped_data['obereg'].unique()
@@ -59,6 +66,7 @@ unique_obereg = grouped_data['obereg'].unique()
 for obereg, data in grouped_data.groupby('obereg'):
     plt.plot(data['year'], data['total_retention'], label=obereg)
 
+plt.xticks(years)
 plt.xlabel('Year')
 plt.ylabel('Retention %')
 plt.title('Retention % by Year and Carnegie Classification')
@@ -113,7 +121,7 @@ for basic2021, data in filtered_grouped_data.groupby('basic2021'):
     data['total_retention'] = 100 - (data['total_lost'] / data['total_grad'] * 100)
     plt.plot(data['year'], data['total_retention'], label=f'Basic 2021: {basic2021}')
 
-
+plt.xticks(years)
 plt.xlabel('Year')
 plt.ylabel('Retention %')
 plt.title('Retention % by Year and Basic 2021 Classification')
@@ -148,7 +156,11 @@ plt.show()
 # 
 
 #CURRENT ISSUE 
-#Data has visualization issues (overlaping text)
+#Data has major concerns at the following 
+# 7 at 2003
+# 9 in general but specificly at 2007-2008
+# BASIC 17 2006
+# AND in general the graph axis are odd
 
 
 # OLD ISSUES
