@@ -21,6 +21,7 @@ filtered_data = df[df['year'] > 2001]
 
 filtered_data = df[df['year'] > 2001] 
 
+
 grouped_data = filtered_data.groupby(['obereg', 'year']).agg(
     n=('year', 'count'),
     total_grad=('grad_total', 'sum'),
@@ -58,12 +59,13 @@ max_year = grouped_data['year'].max()
 years = np.arange(min_year, max_year + 1)
 
 # print(grouped_data['total_lost'])
+filtered_grouped_data = grouped_data[(grouped_data['obereg'] < 9)]
 
 unique_obereg = grouped_data['obereg'].unique()
 
 # Plot each unique 'obereg' group separately
 # Plotting
-for obereg, data in grouped_data.groupby('obereg'):
+for obereg, data in filtered_grouped_data.groupby('obereg'):
     plt.plot(data['year'], data['total_retention'], label=obereg)
 
 plt.xticks(years)
@@ -109,17 +111,27 @@ print('Total RETENTION %', total_retention)
 import matplotlib.pyplot as plt
 
 # Filter the grouped_data DataFrame
-filtered_grouped_data = grouped_data[(grouped_data['basic2021'] >= 12) & (grouped_data['basic2021'] <= 20)]
+filtered_grouped_data = grouped_data[(grouped_data['basic2021'] <= 20)]
 
-# Get unique values in the 'basic2021' column after filtering
-unique_basic2021 = filtered_grouped_data['basic2021'].unique()
+# Filter data for Basic 2021 classifications 15 and 16
+basic_15_16_data = filtered_grouped_data[filtered_grouped_data['basic2021'].isin([15, 16])]
 
-# print(grouped_data) 
-
-# Plot each unique 'basic2021' group separately
-for basic2021, data in filtered_grouped_data.groupby('basic2021'):
+# Plot individual lines for Basic 2021 classifications 15 and 16
+for basic2021, data in basic_15_16_data.groupby('basic2021'):
     data['total_retention'] = 100 - (data['total_lost'] / data['total_grad'] * 100)
     plt.plot(data['year'], data['total_retention'], label=f'Basic 2021: {basic2021}')
+
+# Filter data for other Basic 2021 classifications
+other_basic_data = filtered_grouped_data[~filtered_grouped_data['basic2021'].isin([15, 16])]
+
+# Aggregate data for other Basic 2021 classifications
+other_basic_data_agg = other_basic_data.groupby('year').mean().reset_index()
+
+# Calculate retention percentage for other Basic 2021 classifications
+other_basic_data_agg['total_retention'] = 100 - (other_basic_data_agg['total_lost'] / other_basic_data_agg['total_grad'] * 100)
+
+# Plot a single line for other Basic 2021 classifications
+plt.plot(other_basic_data_agg['year'], other_basic_data_agg['total_retention'], label='Other Basic 2021')
 
 plt.xticks(years)
 plt.xlabel('Year')

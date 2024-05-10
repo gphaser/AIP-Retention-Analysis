@@ -62,11 +62,11 @@ for obereg_value in unique_obereg:
     plt.figure(figsize=(10, 6))
     
     # Plot the data
-    #plt.plot(obereg_group['year'], obereg_group['total_grad'], label='Total Graduates')
-    #plt.plot(obereg_group['year'], obereg_group['total_international'], label='Total International Graduates')
-    #plt.plot(obereg_group['year'], obereg_group['total_domestic'], label='Total Domestic Graduates')
-    #plt.plot(obereg_group['year'], obereg_group['total_first'], label='Total First Years')
-    #plt.plot(obereg_group['year'], obereg_group['total_degree'], label='Total Degrees Earned')
+    plt.plot(obereg_group['year'], obereg_group['total_grad'], label='Total Graduates')
+    plt.plot(obereg_group['year'], obereg_group['total_international'], label='Total International Graduates')
+    plt.plot(obereg_group['year'], obereg_group['total_domestic'], label='Total Domestic Graduates')
+    plt.plot(obereg_group['year'], obereg_group['total_first'], label='Total First Years')
+    plt.plot(obereg_group['year'], obereg_group['total_degree'], label='Total Degrees Earned')
     plt.plot(obereg_group['year'], obereg_group['total_lost'], label='Retention Value')
 
     #print('Total ATRITION %', total_atrition)
@@ -133,11 +133,11 @@ for basic2021_value in unique_basic2021:
     plt.figure(figsize=(10, 6))
     
     # Plot the data
-    #plt.plot(basic2021_group['year'], basic2021_group['total_grad'], label='Total Graduates')
-    #plt.plot(basic2021_group['year'], basic2021_group['total_international'], label='Total International Graduates')
-    #plt.plot(basic2021_group['year'], basic2021_group['total_domestic'], label='Total Domestic Graduates')
-    #plt.plot(basic2021_group['year'], basic2021_group['total_first'], label='Total First Year')
-    #plt.plot(basic2021_group['year'], basic2021_group['total_degree'], label='Total Degrees')
+    plt.plot(basic2021_group['year'], basic2021_group['total_grad'], label='Total Graduates')
+    plt.plot(basic2021_group['year'], basic2021_group['total_international'], label='Total International Graduates')
+    plt.plot(basic2021_group['year'], basic2021_group['total_domestic'], label='Total Domestic Graduates')
+    plt.plot(basic2021_group['year'], basic2021_group['total_first'], label='Total First Year')
+    plt.plot(basic2021_group['year'], basic2021_group['total_degree'], label='Total Degrees')
     plt.plot(basic2021_group['year'], basic2021_group['total_lost'], label='Retention Value')
     
    # print('Total ATRITION %', total_atrition)
