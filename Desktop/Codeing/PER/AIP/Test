@@ -1,3 +1,4 @@
+# AIP TRIMED 
 # This File serves to convert the AIP Retetion document into pyton form for data visulization and for GitHub updates 
 # Comments such as these will be made either at key points along the code to inform readers or to serve as markers for updates
 # print("hello world")
@@ -7,184 +8,160 @@
 import pandas as pd
 # imported matplot for data.
 import matplotlib.pyplot as plt
+import numpy as np 
 
 
 # Read the Excel file into a pandas DataFrame
-df = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/AIP Retention.xlsx")
+df = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/Cleaned AIP Retention.xlsx")
 # Specify the sheet name or index
-Retention = 'Retention'  
-Math = 'Math'
-# Read data from the specified sheet
-dfr = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/AIP Retention.xlsx", sheet_name=Retention) # Full Data set trimed for ease
-dfm = pd.read_excel("/Users/Chris/Desktop/Codeing/PER/AIP/AIP Retention.xlsx", sheet_name=Math) #simplified math data
+
+filtered_data = df[df['year'] > 2001] 
+
+# Group by 'obereg' and 'year' and perform aggregation 
+
+filtered_data = df[df['year'] > 2001] 
+
+grouped_data = filtered_data.groupby(['obereg', 'year']).agg(
+    n=('year', 'count'),
+    total_grad=('grad_total', 'sum'),
+    total_international=('grad_foreign', 'sum'),
+    total_first=('grad_first', 'sum'),
+    total_mast=('degree_m', 'sum'),
+    total_phd=('degree_p', 'sum')
+).reset_index()
+
+# Calculate total_domestic and total_degree columns
+grouped_data['total_domestic'] = grouped_data['total_grad'] - grouped_data['total_international']
+grouped_data['total_degree'] = grouped_data['total_mast'] + grouped_data['total_phd']
+
+grouped_data = grouped_data.sort_values(by=['obereg', 'year']) 
+
+grouped_data['total_lost'] = (-grouped_data['total_grad'] + grouped_data['total_first'] -  
+
+                             grouped_data['total_degree'] + grouped_data['total_grad'].shift(1))
+
+grouped_data.dropna(inplace=True)
+
+grouped_data = grouped_data[grouped_data['year'] > 2002]
+
+grouped_data['total_atrition'] = grouped_data['total_lost']/grouped_data['total_grad'] * 100 
+grouped_data['total_retention'] = 100 - grouped_data['total_atrition']
+
+print('Total ATRITION %', grouped_data['total_atrition'])
+print('Total RETENTION %', grouped_data['total_retention'])
+
+# print(grouped_data['total_lost'])
+
+unique_obereg = grouped_data['obereg'].unique()
+
+# Plot each unique 'obereg' group separately
+# Plotting
+for obereg, data in grouped_data.groupby('obereg'):
+    plt.plot(data['year'], data['total_retention'], label=obereg)
+
+plt.xlabel('Year')
+plt.ylabel('Retention %')
+plt.title('Retention % by Year and Carnegie Classification')
+plt.legend()
+plt.grid(True)
+plt.show()
 
 
-# Now you can work with the data in the DataFrame
-# print(dfm.head())  # Print the first few rows of the DataFrame
-# print(dfm) # prints the data frame
+# Group by 'basic' and 'year' and perform aggregation 
 
-#Push to git  using git push -u origin main ()
+grouped_data = filtered_data.groupby(['basic2021', 'year']).agg(
+    n=('year', 'count'),
+    total_grad=('grad_total', 'sum'),
+    total_international=('grad_foreign', 'sum'),
+    total_first=('grad_first', 'sum'),
+    total_mast=('degree_m', 'sum'),
+    total_phd=('degree_p', 'sum')
+).reset_index()
 
-#Go to the Math Sheet via pandas and write code to make the graphs 
-# need to select the rows 2-22 then for each of those make a histogram
-# repeate process for rows in patters of 1 year, 2 year, 5 year, 10 year, 20 year so 2-3, 4-5,... 2-4, 5-7,... 2-7, 8-12, ... 2-12, 13-22 ... 2-22 
-# use code df.loc[row wanted],or for multiple df.iloc[first row wanted:last row wanted]
-#df.iloc[:, [1, 2, 5]] Select columns in positions 1, 2 and 5 (firstcolumn is 0).
+# Calculate total_domestic and total_degree columns
+grouped_data['total_domestic'] = grouped_data['total_grad'] - grouped_data['total_international']
+grouped_data['total_degree'] = grouped_data['total_mast'] + grouped_data['total_phd']
 
-num_rows = len(dfm)
-print("Number of rows:", num_rows)
-print("rember to uncoment recursion and comment this line")
+grouped_data['total_lost'] = (-grouped_data['total_grad'] + grouped_data['total_first'] -  
 
-# generic histograms
-# CURRENTLY PRODUCES HISTOGRAMS BUT NOT OF PROPER TYPE TO BE FIXED ASAP 4-5-24
+                             grouped_data['total_degree'] + grouped_data['total_grad'].shift(1))
 
-def row_1(n):
-    if n >= 20:
-        print(n, "is this")
-        # Selecting the row and columns B-F from DataFrame dfm
-        selected_row = dfm.iloc[n,[1, 2, 3, 4, 5]]
-        categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
-        print(selected_row)
-        # Plotting a histogram of the selected row
-        plt.scatter(categories, selected_row) 
-        plt.title("Data for " + str(2002+n))
-        plt.ylabel("Values")
-        plt.xlabel(categories)
-        plt.show() 
-        print('end')
-        print('end')
-    else:
-        print(n)
-        # Selecting the row and columns B-F from DataFrame dfm
-        selected_row = dfm.iloc[n,[1, 2, 3, 4, 5]]
-        print(selected_row)
-        # Plotting a histogram of the selected row
-        categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
-        plt.scatter(categories, selected_row) 
-        plt.title("Data for " + str(2002+n))
-        plt.ylabel("Values")
-        plt.xlabel(categories)
-        plt.show() 
-        print('end')
-        n = n + 1
-        row_1(n)
+grouped_data.dropna(inplace=True)
 
-def rows_2(n): 
-    if n >= 20:
-        print(n, "is this")
-        #dfm.iloc[20,[1, 2, 3, 4, 5]] (wont need cause 19-20 has the 2 year)
-        print('end')
-    else: 
-        print(n)
-        dfm.iloc[n:n+1,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
-        n=n+1
-        print(n)
-        rows_2(n)
-        # dfm.plot.hist()
-        # print(dfm.plot.hist())
+grouped_data = grouped_data[grouped_data['year'] > 2002]
 
-def rows_5(n): 
-    if n >= 15:
-        print(n, "final n")
-        dfm.iloc[n:n+5,[1, 2, 3, 4, 5]] 
-        print('end')
-        # dfm.plot.hist()
-        # print(dfm.plot.hist())
-    else: 
-        print(n)
-        dfm.iloc[n:n+5,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
-        n=n+5
-        print(n)
-        rows_5(n)
-        # dfm.plot.hist()
-        # print(dfm.plot.hist())
+total_atrition = grouped_data['total_lost']/grouped_data['total_grad'] * 100 
+total_retention = 100 - total_atrition
 
-def rows_10(n): 
-    if n >= 10:
-        print(n, "final n")
-        dfm.iloc[n:n+10,[1, 2, 3, 4, 5]] 
-        print('end')
-        # dfm.plot.hist()
-        # print(dfm.plot.hist())
-    else: 
-        print(n)
-        dfm.iloc[n:n+10,[1, 2, 3, 4, 5]] # this should be selecting the individual row and the B-F collum for the data
-        n=n+5
-        print(n)
-        rows_10(n)
-        # dfm.plot.hist()
-        # print(dfm.plot.hist())
+print('Total ATRITION %', total_atrition)
+print('Total RETENTION %', total_retention)
 
-def rows_20(n): 
-    if n >= 0:
-        print(n, "final n")
-        selected_rows = dfm.iloc[n:n+20,[1, 2, 3, 4, 5]]
-        categories = ['GRAD Total', 'International', 'Domestic','First year','DEGREE TOTAL']
-        # selected_rows.plot.hist()
-        plt.scatter(categories, selected_rows) 
-        plt.title("Data for " + str(2002+n) + "-" + str(2002+n+20))
-        plt.ylabel("Values")
-        plt.xlabel(categories)
-        plt.show() 
-        print('end')
-        # dfm.plot.hist()
-        # print(dfm.plot.hist())
-    else: 
-        print("error")
+# print(grouped_data) 
 
-# create data sets for the CARNAGE data classifies the US into 9 regions (in obreg collum):
-# issue will have to use og data set, good news already have the stuff that i need to do it
-# collum x for the obreg so need to be at 23 (increment form 0) over each year to create a adata set for each year
-#Full data set (df)CODE, the following are the year break points 765, 1529, 2296, 3060, 3820, 4583, 5346, 6107, 6866, 7619, 8370, 
-# 9123, 9875, 10627, 11378, 12138, 12899, 13667, 14430, 15185, 15931
-#so will read over each line find what group it belongs to asign it to the apropriate data set for analysis 
-# groups are 0-9 for the different regions
+import matplotlib.pyplot as plt
 
-# Year breakpoints
-year_breakpoints = [765, 1529, 2296, 3060, 3820, 4583, 5346, 6107, 6866, 7619, 8370, 
-                    9123, 9875, 10627, 11378, 12138, 12899, 13667, 14430, 15185, 15931]
+# Filter the grouped_data DataFrame
+filtered_grouped_data = grouped_data[(grouped_data['basic2021'] >= 12) & (grouped_data['basic2021'] <= 20)]
 
-# Initialize a dictionary to hold datasets for each year
-datasets = {}
+# Get unique values in the 'basic2021' column after filtering
+unique_basic2021 = filtered_grouped_data['basic2021'].unique()
 
-# Iterate over each year
-for i in range(len(year_breakpoints)):
-    start_index = year_breakpoints[i-1] if i > 0 else 0
-    end_index = year_breakpoints[i]
-    
-    # Create a dataset for the current year
-    datasets[f"year_{i+1}"] = df.iloc[start_index:end_index]
+# print(grouped_data) 
 
-# Example usage: accessing dataset for year 1
-# year_1_dataset = datasets["year_1"]
-# now for each year need to organize into carnage sets 
+# Plot each unique 'basic2021' group separately
+for basic2021, data in filtered_grouped_data.groupby('basic2021'):
+    data['total_retention'] = 100 - (data['total_lost'] / data['total_grad'] * 100)
+    plt.plot(data['year'], data['total_retention'], label=f'Basic 2021: {basic2021}')
 
 
-dfc0 = df
-dfc1 = df
-dfc2 = df
-dfc3 = df
-dfc4 = df
-dfc5 = df
-dfc6 = df
-dfc7 = df
-dfc8 = df
-dfc9 = df
+plt.xlabel('Year')
+plt.ylabel('Retention %')
+plt.title('Retention % by Year and Basic 2021 Classification')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+# SEE IF I CAN GET A CLEAN 10 year
+
+
+
+#SO now with data frames for obreg regional clasifications and frames for carnagee now need to do histograms for them following the inital set
+# LOOK AT ROWS K, L, M, O, P for 'GRAD Total', 'International', 'Domestic','First year','DEGREE Master', 'Degree PHD' 
+# So rows 10, 11, 12, 14, 15 
+
+
+
 
 
 # Calls for the recursion 
-row_1(0)
+# row_1(0)
 # rows_2(0)
 # rows_5(0)
 # rows_10(0)
 # rows_20(0)
 
 
-# FIX FOR MORNING, Got GITHUB WORKING, Now Working on incrimenting over CARNAGE data 
+# CURRENT WORK GRAPHS for new organization
 
-#Current Issue Histograms produced are not correct 
-#Sollution Use redo the basic matplot code 
+#Current Issue Histograms for new data are working, but only for 1 year at a time
+# 
+
+#CURRENT ISSUE 
+#Data has visualization issues (overlaping text)
+
 
 # OLD ISSUES
     # HISTOGRAMS NOT PRINTING OUT 
         # FIXED BY ADDING MATPLOT
+    # Git HUB not working 
+        # FIX USE THE FOLLOWING TO PUSH
+            # git add /Users/Chris/Desktop/Codeing/PER/AIP
+            # git commit -m "stuff"
+            # git push origin main
+    #Current Issue Histograms produced are not correct 
+        #Fixed: using bar and group bar graphs    
+    #Current Issue Histograms produced are not correct 
+        #Sollution: redo the basic matplot code 
+    # Histograms for new data are working but not right 
+        # FIXED AND FUNCTIONAL
