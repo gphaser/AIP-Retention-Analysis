@@ -19,9 +19,8 @@ filtered_data = df[df['year'] > 2001]
 
 # Group by 'obereg' and 'year' and perform aggregation 
 
-filtered_data = df[df['year'] > 2001] 
-
-
+filtered_data = df[df['year'] > 2001]
+                   
 grouped_data = filtered_data.groupby(['obereg', 'year']).agg(
     n=('year', 'count'),
     total_grad=('grad_total', 'sum'),
@@ -63,17 +62,33 @@ filtered_grouped_data = grouped_data[(grouped_data['obereg'] < 9)]
 
 unique_obereg = grouped_data['obereg'].unique()
 
+obereg_labels = {
+    '1': 'New England CT ME MA NH RI VT ',
+    '2': 'Mid East DE DC MD NJ NY PA',
+    '3': 'Great Lakes IL IN MI OH WI ',
+    '4': 'Plains IA KS MN MO NE ND SD',
+    '5': 'Southeast AL AR FL GA KY LA MS NC SC TN VA WV',
+    '6': 'Southwest AZ NM OK TX ',
+    '7': 'Rocky Mountains CO ID MT UT WY',
+    '8': 'Far West AK CA HI NV OR WA',
+    # Add more mappings as needed
+}
+
+# Clear previous legend
+plt.clf()
+
 # Plot each unique 'obereg' group separately
 # Plotting
 for obereg, data in filtered_grouped_data.groupby('obereg'):
-    plt.plot(data['year'], data['total_retention'], label=obereg)
+    label = obereg_labels.get(obereg, obereg)
+    plt.plot(data['year'], data['total_retention'], marker='o', linestyle='-', label=label)
 
 plt.xticks(years)
 plt.xlabel('Year')
 plt.ylabel('Retention %')
 plt.title('Retention % by Year and Carnegie Classification')
-plt.legend()
 plt.grid(True)
+plt.legend()
 plt.show()
 
 
@@ -119,7 +134,7 @@ basic_15_16_data = filtered_grouped_data[filtered_grouped_data['basic2021'].isin
 # Plot individual lines for Basic 2021 classifications 15 and 16
 for basic2021, data in basic_15_16_data.groupby('basic2021'):
     data['total_retention'] = 100 - (data['total_lost'] / data['total_grad'] * 100)
-    plt.plot(data['year'], data['total_retention'], label=f'Basic 2021: {basic2021}')
+    plt.plot(data['year'], data['total_retention'],marker='o', linestyle='-', label=f'Basic 2021: {basic2021}')
 
 # Filter data for other Basic 2021 classifications
 other_basic_data = filtered_grouped_data[~filtered_grouped_data['basic2021'].isin([15, 16])]
@@ -131,7 +146,8 @@ other_basic_data_agg = other_basic_data.groupby('year').mean().reset_index()
 other_basic_data_agg['total_retention'] = 100 - (other_basic_data_agg['total_lost'] / other_basic_data_agg['total_grad'] * 100)
 
 # Plot a single line for other Basic 2021 classifications
-plt.plot(other_basic_data_agg['year'], other_basic_data_agg['total_retention'], label='Other Basic 2021')
+plt.plot(other_basic_data_agg['year'], other_basic_data_agg['total_retention'],marker='o', linestyle='-', label='Other Basic 2021')
+
 
 plt.xticks(years)
 plt.xlabel('Year')
@@ -140,6 +156,141 @@ plt.title('Retention % by Year and Basic 2021 Classification')
 plt.legend()
 plt.grid(True)
 plt.show()
+
+
+# NEW CODE FOR INDIVIDUAL STATES AND FOR UNIVERSITIES
+
+# Group by 'state' and 'year' and perform aggregation 
+
+filtered_data = df[df['year'] > 2001] 
+
+
+filtered_data = df[df['year'] > 2001]
+                   
+grouped_data = filtered_data.groupby(['state', 'year']).agg(
+    n=('year', 'count'),
+    total_grad=('grad_total', 'sum'),
+    total_international=('grad_foreign', 'sum'),
+    total_first=('grad_first', 'sum'),
+    total_mast=('degree_m', 'sum'),
+    total_phd=('degree_p', 'sum')
+).reset_index()
+
+# Calculate total_domestic and total_degree columns
+grouped_data['total_domestic'] = grouped_data['total_grad'] - grouped_data['total_international']
+grouped_data['total_degree'] = grouped_data['total_mast'] + grouped_data['total_phd']
+
+grouped_data = grouped_data.sort_values(by=['state', 'year']) 
+
+grouped_data['total_lost'] = (-grouped_data['total_grad'] + grouped_data['total_first'] -  
+
+                             grouped_data['total_degree'] + grouped_data['total_grad'].shift(1))
+
+grouped_data.dropna(inplace=True)
+
+grouped_data = grouped_data[grouped_data['year'] > 2002]
+
+grouped_data['total_atrition'] = grouped_data['total_lost']/grouped_data['total_grad'] * 100 
+grouped_data['total_retention'] = 100 - grouped_data['total_atrition']
+
+print('Total ATRITION %', grouped_data['total_atrition'])
+print('Total RETENTION %', grouped_data['total_retention'])
+
+# Determine the range of years in the dataset
+min_year = grouped_data['year'].min()
+max_year = grouped_data['year'].max()
+
+# Create an array of every year in the range
+years = np.arange(min_year, max_year + 1)
+
+# print(grouped_data['total_lost'])
+
+unique_state = grouped_data['state'].unique()
+
+# Plot each unique 'state' group separately
+# Plotting
+for state, data in grouped_data.groupby('state'):
+    plt.plot(data['year'], data['total_retention'], marker='o', linestyle='-', label=label)
+
+plt.xticks(years)
+plt.xlabel('Year')
+plt.ylabel('Retention %')
+plt.title('Retention % by Year and State')
+# plt.legend()
+plt.grid(True)
+plt.show()
+
+
+# NOW FOR UNIVERSITY 
+
+filtered_data = df[df['year'] > 2001] 
+
+
+filtered_data = df[df['year'] > 2001]
+                   
+grouped_data = filtered_data.groupby(['name', 'year']).agg(
+    n=('year', 'count'),
+    total_grad=('grad_total', 'sum'),
+    total_international=('grad_foreign', 'sum'),
+    total_first=('grad_first', 'sum'),
+    total_mast=('degree_m', 'sum'),
+    total_phd=('degree_p', 'sum')
+).reset_index()
+
+# Calculate total_domestic and total_degree columns
+grouped_data['total_domestic'] = grouped_data['total_grad'] - grouped_data['total_international']
+grouped_data['total_degree'] = grouped_data['total_mast'] + grouped_data['total_phd']
+
+grouped_data = grouped_data.sort_values(by=['name', 'year']) 
+
+grouped_data['total_lost'] = (-grouped_data['total_grad'] + grouped_data['total_first'] -  
+
+                             grouped_data['total_degree'] + grouped_data['total_grad'].shift(1))
+
+grouped_data.dropna(inplace=True)
+
+grouped_data = grouped_data[grouped_data['year'] > 2002]
+
+grouped_data['total_atrition'] = grouped_data['total_lost']/grouped_data['total_grad'] * 100 
+grouped_data['total_retention'] = 100 - grouped_data['total_atrition']
+
+print('Total ATRITION %', grouped_data['total_atrition'])
+print('Total RETENTION %', grouped_data['total_retention'])
+
+# Determine the range of years in the dataset
+min_year = grouped_data['year'].min()
+max_year = grouped_data['year'].max()
+
+# Create an array of every year in the range
+years = np.arange(min_year, max_year + 1)
+
+# print(grouped_data['total_lost'])
+
+unique_name = grouped_data['name'].unique()
+
+# Plot each unique 'obereg' group separately
+# Plotting
+for name, data in grouped_data.groupby('name'):
+    plt.plot(data['year'], data['total_retention'], marker='o', linestyle='-', label=label)
+
+plt.xticks(years)
+plt.xlabel('Year')
+plt.ylabel('Retention %')
+plt.title('Retention % by Year and University')
+# plt.legend()
+plt.grid(True)
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
 
 
 # SEE IF I CAN GET A CLEAN 10 year
@@ -162,9 +313,9 @@ plt.show()
 # rows_20(0)
 
 
-# CURRENT WORK GRAPHS for new organization
+# CURRENT Issue, How to show a tone of schools, also the odd exceptions that exist 
 
-#Current Issue Histograms for new data are working, but only for 1 year at a time
+
 # 
 
 #CURRENT ISSUE 

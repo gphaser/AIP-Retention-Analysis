@@ -30,6 +30,7 @@ grouped_data = filtered_data.groupby(['obereg', 'year']).agg(
     total_phd=('degree_p', 'sum')
 ).reset_index()
 
+
 # Calculate total_domestic and total_degree columns
 grouped_data['total_domestic'] = grouped_data['total_grad'] - grouped_data['total_international']
 grouped_data['total_degree'] = grouped_data['total_mast'] + grouped_data['total_phd']
@@ -41,6 +42,7 @@ grouped_data['total_lost'] = (-grouped_data['total_grad'] + grouped_data['total_
                              grouped_data['total_degree'] + grouped_data['total_grad'].shift(1))
 
 grouped_data.dropna(inplace=True)
+
 
 grouped_data = grouped_data[grouped_data['year'] > 2002]
 
